@@ -1,1 +1,0 @@
-# kasuganosan.github.io
