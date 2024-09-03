@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>訓読みを解くに基づくのメモリー</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Font Awesome & Pixeden Icon Stroke icon font-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <!-- Google fonts - Roboto Condensed & Roboto-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400">
+    <!-- lightbox-->
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <div role="navigation" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header"><a href="index.html" class="navbar-brand">うしろみや
+          </a>
+            <div class="navbar-buttons">
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+            </div>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">公式サイト</a></li>
+               <li class="active"><a href="text.html">魔女の蕃茄園 </a></li>
+             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">魔女の茶話会
+ <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="hibun.html">右代宮の碑文</a></li>
+                  <li><a href="genga.html">魔女の肖像画</a></li>
+                </ul>
+              </li>
+              <li><a href="contact.html">連絡先</a></li>
+            </ul>
+</div>
+        </div>
+      </div>
+    </header>
+    <!-- *** LOGIN MODAL ***_________________________________________________________
+    -->
+    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+            <h4 id="Login" class="modal-title">Customer login</h4>
+          </div>
+          <div class="modal-body">
+            <form action="customer-orders.html" method="post">
+              <div class="form-group">
+                <input id="email_modal" type="text" placeholder="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input id="password_modal" type="password" placeholder="password" class="form-control">
+              </div>
+              <p class="text-center">
+                <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+              </p>
+            </form>
+            <p class="text-center text-muted">Not registered yet?</p>
+            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+           <li><a href="text.html">魔女の蕃茄園</a></li>
+            <li>学术探讨</li>
+            <li>訓読みを解くに基づくのメモリー</li>
+          </ul>
+        </div>
+        <h1>訓読みを解くに基づくのメモリー</h1>
+        <p class="lead">——些许日本语学习的思考</p>
+      </div>
+    </section>
+    <section class="blog-post">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="post-content margin-bottom--big">
+<li>日文分为「音読み」和「訓読み」，因为日文有着音读这个与汉语相似的点，被认为是中国人理解日文先天的优势，网上想学习者介绍的音读记忆法也数不胜数，可令人遗憾的是，训读作为国人较为陌生的语言点，我参阅了许多文献，除了一些专业的字源学研究外，几乎没有供中高级学习者参考的记忆规律。对此，我想承接上篇文章详细谈谈训读。 先叠一个甲，讲一个故事： 北宋时王安石曾引起过字源学讨论。不过他的字源学，只是字的结构与来源的研究，不是用比较方法，而是凭个人的幻想。王安石相信这是独得之秘，是对学术上不朽的贡献，至老年时犹苦研不辍，成书二十五卷。碍于当时他的地位，众人只是敢怒不敢言。像王安石这样研究一个字构成的各种理由，为什么一个字由某些偏旁组织起来就表示某种意义，那倒是容易而有趣。王安石的字源说有五十条左右流传下来，都是供茶余酒后的笑谈。中文里有一个“波”字，王安石不管语音学的道理，只想从意义上找点趣谈。这个“波”字触动了王安石丰富的想象，他说“波”者“水”之“皮”也。一天苏东坡遇见他，向他戏德道：“‘波’若是‘水’之‘皮’，则‘滑’就是‘水’之‘骨’了。”王安石违反中国字构成的基本原则。有时他割裂字根为二，再另与一个部首相接，像“富”字一例，真会使语言学家啼笑皆非的。 我接下来想讲的理论，跟王安石的拆字有相似之处，不过我仅仅想从学习者的视角来研究这个问题，详细叙述一下如何利用“拆”来简化训读记忆。
+               
+<p style="text-align: center;"><img src="img/omo1.jpg" width="517" height="410" alt=""/></p>
+			<p>上次我列举了一些长难名词的拆解方式，但在研究中，我发现一些更为常见的动词对我们而言更难记忆，这也是考试的重中之重。</p>
+			<p><strong>&nbsp; 偏る→片寄る</strong></p>
+			<p>这个很好理解，「寄る」在日文中本身就是靠近、集中的意思，如「駅から西に寄った所に山がある」，类似地表达还有「年寄り」，靠近年纪大的，便是老年人，而「片」则是一边、一方。靠近一方，即是“偏”。</p>
+			<p><strong>&nbsp; 傾く→片向く</strong></p>
+			<p><strong>&nbsp; 俯く→うつ向く</strong></p>
+			<p><strong>&nbsp; 仰むく→仰向く</strong></p>
+<p>&nbsp;这三个词的词根都是「向く」，即朝向，不同的前面的名词，限定了朝向的方向。这种用词跟来记忆的方法后面会详细叙述。</p>
+<p><strong>&nbsp; 占う→占なう：占卜，算命</strong></p>
+<p>&nbsp; <strong>補</strong><strong>う→補なう：补充，贴补</strong></p>
+<p><strong>&nbsp; 養う→やしなう：养育，供养</strong></p>
+<p><strong>&nbsp; 失う→うしなう：失去 </strong></p>
+<p>&nbsp;<strong> 商う→あきなう：贩售</strong></p>
+<p><strong>&nbsp; 担う→になう：肩负，承担</strong></p>
+<p><strong>&nbsp; 伴う→共なう：伴随，陪伴</strong></p>
+<p><strong>&nbsp; 償う→賠なう：赔偿，赎罪</strong></p>
+<p><strong>&nbsp; 行う→おこなう：行，做，办</strong></p>
+<p><strong>&nbsp; 賄う→まかなう：供给，提供，维持</strong></p>
+<p>&nbsp;这几个词有如下相似之处：</p>
+<p>&nbsp; 1.外形。都是一个汉字＋う。行う</p>
+<p>&nbsp; 2.都有一个统一的词缀：～なう。</p>
+<p>&nbsp; 3.读音。都是由4个假名构成。おこなう。</p>
+<p>&nbsp; 4.都是训读动词。</p>
+<p>&nbsp; 5.常用，且<strong>必考</strong>。在N1N2考试中反复出现。</p>
+<p>&nbsp;6.都是从其他基础词汇变来的，尤其是从名词变化而来。なう</p>
+<p>&nbsp;请看以下真题：</p>
+<img src="img/omo2.png" width="640" height="160" alt=""/>
+<p class="text-center">&nbsp;2010年7月N1问题1，第3小题</p>
+<p>&nbsp;其中2.3.两个词都是以なう结尾的动词。而なう就是中高级动词的后缀。《大辞林》对なう的解释：「なう」：名詞、形容詞の語幹に付いて動詞を作り、その行為をする意を表す。简单说，なう，就是一个常用动词后缀，作用就是将前面的词变成动词。所以记忆时，我们只需记住前面的名词部分，大大减少了记忆量。</p>
+<p>&nbsp;可能到这里也许有人会思考：「なう」这个词根的来源是什么？同词根的词之间是否具有一定的相似性？除了「なう」以外还有其他明显的词根存在吗？ 这也是我在学习过程中发现的日文语源学的问题，随着语言的演变，许多后缀的形式发生了变化，但其本质含义却是相近的，学习文法时老师一定强调过：「-ず」与「-ない」、「-まい」与「-ないだろう」、「-せよ」与「-しろ」的意义相同，相关的文法书相信也有常见古い言葉を使った言い方的归纳整理，但除了短语外，我们在动词的记忆上也可以用这种演化的思路，我想在这里先引出古典日语动词后缀形态的概念：</p>
+<p class="text-center"><strong>&nbsp;古い言葉を使った言い方 助動詞（部分）</strong></p>
+<p style="text-align: center;"><img src="img/omo3.png" width="825" height="1240" alt=""/></p>
+<p class="text-left">&nbsp;在英文学习时，我们能很直观地感受到词缀对构词的作用，如“perceived“的词缀“ed”，既可以理解为过去时(tense)，也可以理解为被动语态(voice)。与英语的词缀相同，日文的词缀也具有时态和形态的修饰作用，例如「竹取物語」的开篇第一句话：「今は昔、竹取の翁と言ふ者有りけり」，此处的 「けり」在时态上表示过去时，同时又在语态上表示传言，等价于现代日语中的「あったそうだ」。那么理解了这点后对于词汇记忆有什么帮助呢？</p>
+<p>&nbsp;下面介绍一些我在学习中总结出的前（后）缀和其代表的抽象意义：</p>
+<blockquote>
+  <p><strong>&nbsp;1、 さ-（sa-）：最……，在……的顶峰，……程度深</strong></p>
+</blockquote>
+<p>&nbsp; 彷徨う（さまよう）＝さ＋迷う</p>
+<p>&nbsp; 狭霧（さぎり）＝さ＋霧</p>
+<p>&nbsp; 最中（さなか）＝さ＋なか</p>
+<p>&nbsp; 五月雨（さみだれ）＝さ＋乱れ</p>
+<p>&nbsp; 騒ぐ（さわく）＝さ＋わく</p>
+<blockquote>
+  <p>&nbsp;<strong>2、 た-（ta-）：数量多，程度深，时间长</strong></p>
+</blockquote>
+<p>&nbsp; 蓄える（たくわえる）=た+加える</p>
+<p>&nbsp; 達する（たっする）＝た＋（っ）する</p>
+<p>&nbsp; 容易い（たやすい）＝た＋易い</p>
+<p>&nbsp; 辿る（たどる）＝た＋とる</p>
+<p>&nbsp; 保つ（たもつ）=た+持つ （「た」推测可能来自古日语「手（て）」的变音。）</p>
+<blockquote>
+  <p><strong>&nbsp;3、も-（mo-）：程度非常高</strong></p>
+</blockquote>
+<p>&nbsp; 踠く（もがく）=も+掻く</p>
+<p>&nbsp; 齎す（もたらす）＝も＋たらす</p>
+<p>&nbsp; 最早（もはや）=も+早 这个很好理解，现代日语中「も」也能够表示强调。</p>
+<p>&nbsp;接下来是一些常见后缀：</p>
+<blockquote>
+  <p><strong>&nbsp;1、なう=する 动词化</strong></p>
+</blockquote>
+<p>&nbsp; 商（あき）→商う；共→伴う；荷→担う 贖（あが）→あがなう；継ぐ→つぐなう</p>
+<p>&nbsp; 音（おと）→訪う（おとなう）→訪れる→音連れる いざ（表示劝诱的语气词）→誘う（いざなう）→誘う（さそう）</p>
+<blockquote>
+  <p><strong>&nbsp;2、がる、まる、ぶる 表示主观感受，或样态的变化</strong></p>
+</blockquote>
+<p>&nbsp;怖い→怖がる；哀れ→哀れがる 鋭し→尖る；強い→強がる；痛い→痛がる 深い→深まる；固い→固まる；</p>
+<blockquote>
+  <p><strong>&nbsp;3、(ア)す、(ア)かす 他动词化</strong></p>
+</blockquote>
+<p>&nbsp; 探ぐる→探がす；帰る→返す；動く→動かす 伸びる→伸ばす；怖じる→脅す；壊れる→壊す；</p>
+<p>&nbsp;荒れる→荒らす；散る→散らかす；怯える→脅かす； 冷える→冷やかす</p>
+<blockquote>
+  <p><strong>&nbsp;4、 つ 通「す」。他动词化</strong></p>
+</blockquote>
+<p>&nbsp; 誤る→誤つ；煽る→煽つ；分かる→分かつ</p>
+<blockquote>
+  <p><strong>&nbsp;5、(ア)る 自动词化</strong></p>
+</blockquote>
+<p>&nbsp;加える→加わる；分ける→分かる；上げる→上がる 刺す→刺さる；纏う→纏わる；挟む→挟まる</p>
+<p>&nbsp;理解词源后，以上规律在中高级记忆自他动词和训读动词时有一些帮助。</p>
+<p>&nbsp;最后想分享一段最近在看的《雪国》里的文本，写得很美个人十分喜欢，与中译相比，我认为英译似乎更加：</p>
+<p class="quote">&nbsp;“一面の雪の凍りつく音が地の底深く鳴っているような、厳しい夜景であった。月はなかった。噓のように多い星は、見上げていると、虚しい速さで落ちつつあると思われるほど、あざやかに浮き出ていた。星の群が目へ近づいて来るにつれて、空はいよいよ遠く夜の色を深めた。</p>
+<p class="quote">&nbsp; It was a stern night landscape. The sound of the freezing of snow over the land seemed to rear deep into the earth. There was no moon. The stars, almost too many to be true, came forward so brightly that it was as if they were falling with the swiftness of the void. As the stars came nearer, the sky retreated deeper and deeper into the night color.</p>
+</div>
+            <!-- /.post-content-->
+          </div>
+        </div>
+</div>
+    </section>
+    <section class="background-gray-lightest section--padding-bottom-small">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="text-center text-uppercase margin-bottom">おすすめ</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="seisi.html"><img src="img/blog1.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="seisi.html">关于「ヨスガノソラ」中姓氏的思考</a></h3>
+              <p class="post__intro">「春日野」实际是一个地名，位于如今奈良的春日大社附近，若草山一带，而古语中「春日野」则泛指奈良山下的平原。之所以选定此作为男女主角的姓氏，我认为这不是巧合，这或许是游戏开发人员从日本古典作品「伊勢物語」中得到的的一种文学浪漫。
+
+
+</p>
+              <p class="read-more"><a href="seisi.html" class="btn btn-ghost">続き読む     </a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="seinoninkan.html"><img src="img/blog8.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="seinoninkan.html">从《沉沦》到《性的人》</a></h3>
+              <p class="post__intro"> 不管郁达夫的《沉沦》，还是大江健三郎的《性的人》，其中的青年对未来态度的转变，思想的觉醒，对于不同时代的我们仍有教育意义。两书的作者均用了大胆的笔墨，描写了青年对于未来的迷惘和无所依托，把“性”作为政治的暗喻，体现社会中一代青年的觉醒。</p>
+              <p class="read-more"><a href="seinoninkan.html" class="btn btn-ghost">続き読む   </a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="nihongo.html"><img src="img/blog3.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="nihongo.html">浅论高中文言文与日本语的联系</a></h3>
+              <p class="post__intro">文言文作为中国文化的精粹，如今也是如今高考语文的重要题型，笔者在平日的重复的文言文题型训练中，总会有一些奇妙的想法，运用周末的空余时间，也想写一篇文章来记录一下自己的思考，全当练笔。本人古汉语和现代日语的水平有限，如有错误之处烦请斧正。
+
+
+</p>
+              <p class="read-more"><a href="nihongo.html" class="btn btn-ghost">続き読む    </a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 右代宮氏2024作成</a></p>
+            </div>
+            <div class="col-md-6">
+              <p class="credit"></p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"> </script>
+    <script src="js/lightbox.min.js"></script>
+    <script src="js/front.js"></script><!-- substitute:livereload -->
+      </body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>「うみねこのなく頃に」Episode 8中的Monty Hall问题思考</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="../kasugano website/css/bootstrap.min.css">
+    <!-- Font Awesome & Pixeden Icon Stroke icon font-->
+    <link rel="stylesheet" href="../kasugano website/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../kasugano website/css/pe-icon-7-stroke.css">
+    <!-- Google fonts - Roboto Condensed & Roboto-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400">
+    <!-- lightbox-->
+    <link rel="stylesheet" href="../kasugano website/css/lightbox.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="../kasugano website/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../kasugano website/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../kasugano website/favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <div role="navigation" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header"><a href="../kasugano website/index.html" class="navbar-brand">うしろみや
+          </a>
+            <div class="navbar-buttons">
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+            </div>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">公式サイト</a></li>
+               <li class="active"><a href="text.html">魔女の蕃茄園 </a></li>
+             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">魔女の茶話会
+ <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="hibun.html">右代宮の碑文</a></li>
+                  <li><a href="genga.html">魔女の肖像画</a></li>
+                </ul>
+              </li>
+              <li><a href="../kasugano website/contact.html">連絡先</a></li>
+            </ul>
+</div>
+        </div>
+      </div>
+    </header>
+    <!-- *** LOGIN MODAL ***_________________________________________________________
+    -->
+    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+            <h4 id="Login" class="modal-title">Customer login</h4>
+          </div>
+          <div class="modal-body">
+            <form action="../kasugano website/customer-orders.html" method="post">
+              <div class="form-group">
+                <input id="email_modal" type="text" placeholder="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input id="password_modal" type="password" placeholder="password" class="form-control">
+              </div>
+              <p class="text-center">
+                <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+              </p>
+            </form>
+            <p class="text-center text-muted">Not registered yet?</p>
+            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+            <li><a href="text.html">魔女の蕃茄園</a></li>
+            <li>学术探讨</li>
+            <li>「うみねこのなく頃に」Episode 8中的Monty Hall问题思考</li>
+          </ul>
+        </div>
+        <h1>「うみねこのなく頃に」Episode 8中的Monty Hall问题思考</h1>
+        <p class="lead">——右代宮さん的游戏记录</p>
+      </div>
+    </section>
+    <section class="blog-post">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="post-content margin-bottom--big">
+<li>2024.02.29 文<br>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall1.png" width="500" height="300" alt=""/></p>
+<p>&nbsp; 「うみねこのなく頃に」是我特别喜欢的一系列作品，也对我影响特别大。这部参照莎士比亚《无事生非》中人物设定的同人游戏，从出题篇的文笔的波诡云谲，再到解题篇的真相大白，其中的悬疑诡计、迷失推理堪称一绝。虽然龙7背离了本格推理的初心，再加上大部分人诟病的画风，但瑕不掩瑜，海猫依然在同人游戏史中留下浓墨重彩的一笔。</p>
+		    <p>&nbsp;
+海猫解Episode8里，在战人给缘寿设计的棋盘中，喜庆的家庭会议上曾有一个分蛋糕情节，先让我们来回顾一下故事梗概：</p>
+		    <p style="text-align: center;"><img src="../kasugano website/img/montyhall2.png" width="500" height="390" alt=""/></p>
+<p>&nbsp;  乡田俊朗：“今天，作为今晚万圣节派对的亮点，我们特地准备了这个萨赫蛋糕。正如各位所看到的，这是用巧克力沾上单翼鹰纹章的封蜡，是右代宫家独有的一道菜！” 众人纷纷对那精美的蛋糕表示赞叹。</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall3.png" width="500" height="390" alt=""/></p>
+<p>&nbsp;南条辉正：“这是个很棒的蛋糕啊...！真是吸引人眼球。”</p>
+<p>&nbsp;乡田俊朗：“不不。不只是蛋糕哦。今晚的这个蛋糕有一个秘密。・・・・各位，请大家多多指教，多多关照！”</p>
+<p>&nbsp;众人请缘寿先选。</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall4.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall5.png" width="500" height="390" alt=""/></p>
+<p>&nbsp;此处引出了第一个问题：十五份蛋糕，其中一份有坚果，缘寿先选到的概率是十五分之一，后面是真里亚选，至此蛋糕便少了一块，此时便是十四分之一的概率，这之后的人的概率是十三分之一、十二分之一……，最后选的人一定会选到？六岁的缘寿简单地认为这样选是不公平的。可事实是这样的吗？</p>
+<p>&nbsp;这是一个很简单的古典概型问题，关键就是在样本空间不变的情况下，不放回地抽取先验概率不变，这算是个生活常识，这里不再赘述。</p>
+<p>剧情设定缘寿理所当然抽到了坚果，后来众人提议进行有奖问答，没人对缘寿问一个问题，答对便可以获得礼物。其中让治和朱志香的问题很值得深思，高中海猫一周目的时候，我这一点便没有想清楚。&nbsp;</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall6.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall7.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall8.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall9.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall10.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall11.png" width="500" height="390" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall12.png" width="500" height="390" alt=""/></p>
+<p>&nbsp;题干： 有红色和蓝色的箱子和绿色的箱子。</p>
+<p>&nbsp;其中一个有奖牌。</p>
+<p>&nbsp;剩下的两个是可怕的惊吓箱。</p>
+<p>&nbsp;我选了红色的箱子。</p>
+<p>&nbsp; 此时朱志香说：“你确定要选这个吗？惊吓箱很可怕的哦。不信打开一个给你看”</p>
+<p>说着打开绿色的盒子，向我表明那是一个惊吓箱。</p>
+<p>&nbsp;确实让人吓了一跳。</p>
+<p>&nbsp;剩下的只有红色箱子和蓝色箱子两个。</p>
+<p>&nbsp; “你还要打开那个红色的盒子吗？考不考虑换一个呢？“</p>
+<p>&nbsp;那么，红色的箱子和蓝色的箱子。哪个有奖牌的概率比较高呢...？</p>
+<p>&nbsp; 这是一个经典的Monty Hall问题，原问题是这样的：</p>
+<p class="quote">&nbsp;Suppose you're on a game show, and you're given the choice of three doors: Behind one door is a car; behind the others, goats. You pick a door, say No. 1, and the host, who knows what's behind the doors, opens another door, say No. 3, which has a goat. He then says to you, "Do you want to pick door No. 2?" Is it to your advantage to switch your choice?</strong></p>
+<p class="quote">&nbsp;假设你在一个游戏节目中，有三扇门可供选择：一扇门后面是一辆汽车；后面是山羊。你选了一扇门，说是1号门，主人知道门后面是什么，就打开另一扇门，说是3号门，门上有一只山羊。然后他对你说：“你想选2号门吗？”改变你的选择对你有利吗？</p>
+<p>&nbsp;游戏中简化了这个结果→原因的概率问题，仅仅让比较那种该选择更有利，而我想从概率论的角度讨论一下这个问题，首先引出Rule of Elimination和Bayes’Theorem的概念:</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall13.jpg" width="500" height="250" alt=""/></p>
+<p class="text-center">&nbsp;Rule of Elimination</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall14.jpg" width="500" height="400" alt=""/></p>
+<p class="text-center">&nbsp;Bayes’Theorem</p>
+<p>&nbsp;觉是两个盒子概率一样，在一个惊吓箱被打开的情况下，剩下的箱子必然是一个惊吓箱，一个奖品箱，换不换似乎都一样。可惜答案是：换盒子的中奖概率更大。</p>
+<p>&nbsp;先用古典概型的经典方法：</p>
+<p>当缘寿转向另一个箱子而不是维持原先的选择时，中奖的概率将会加倍。</p>
+<p>&nbsp; 概率空间中有三种可能的情况，全部都有相等的可能性（1/3）：</p>
+<p>&nbsp;缘寿挑一号箱子，主持者挑二号箱子。转换将赢得奖励。</p>
+<p>&nbsp; 缘寿挑二号箱子，主持者挑一号箱子。转换将赢得奖励。</p>
+<p>&nbsp;缘寿挑三号箱子，主持者挑一号箱子。转换将失败”，和“缘寿挑三号箱子，主持者挑二号箱子。转换将失败””此情况的可能性为：</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall15.png" width="200" height="50" alt=""/></p>
+<p>&nbsp;故转换成功的概率是三分之二，显然高于不转换的概率。</p>
+<p>接下来尝试用Bayes’Theorem来解决：</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall16.png" width="200" height="50" alt=""/></p>
+<p>&nbsp;针对这个题目，我们假设有A、B、C三个箱子，缘寿选择了A箱子，朱志香打开了B门，然后要缘寿在A箱子和C箱子之间抉择换还是不换。那么如果奖品在B箱子里面，换与不换得到奖品的概率均为0，如果换了能赢，那么汽车必须在C箱子里面，现在我们求以下概率:</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall17.png" width="600" height="85" alt=""/></p>
+<p>先看分母，显然有：&nbsp;</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall18.png" width="360" height="60" alt=""/></p>
+<p>再看分子，当奖品在C箱子里时，缘寿选择了A箱子，朱志香只有B箱子可以打开，所以存在以下关系：&nbsp;</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall19.png" width="300" height="60" alt=""/></p>
+<p>&nbsp;而奖品在C箱子的概率显而易见：</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall20.png" width="175" height="54" alt=""/></p>
+<p>&nbsp;然后我们就求出了换箱子得到奖品的概率:</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall21.png" width="350" height="90" alt=""/></p>
+<p>&nbsp;至此，问题结束。</p>
+<p>&nbsp;最后，我利用Bayes’Theorem原理写了一个cpp程序验证</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall22.png" width="600" height="360" alt=""/></p>
+<p>&nbsp;模拟一万次，输出结果为6676，与计算结果几乎一致。</p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall23.png" width="600" height="468" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall24.png" width="600" height="468" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall25.png" width="600" height="468" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall26.png" width="600" height="468" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/montyhall27.png" width="600" height="468" alt=""/></p>
+<p>回到游戏本身，盒子游戏引出了整个海猫中最精彩的对白之一，也是最令我印象深刻的点：&nbsp;</p>
+<p class="quote">&nbsp;「あれは事後確率って言ってね。ある特定の情報を知ることで、あるいは知らないことで、確率が変動することを言うんだよ。」</p>
+<p class="quote">&nbsp;「もし。10個のゲ-キの中にア-モンドが1つだった5、当たる確率は10%だね。…·でも、それが実は、100個のケ-キの中から適当に選んだ内の10個だと教えられたら”、どうなると思う?」</p>
+<p class="quote">&nbsp;「縁寿ちやんが選んだゲ-キは何も変わらないのに。縁寿ちやんが何かを知ることによって、あるいは知らないことによって。縁寿ちやんのゲ-キの中に-アタリが生まれるかどうかの確率が、変化したんだよ。不思議な話だと思わないかい。」</p>
+<p class="quote">&nbsp;「これから未来。様々な情報が、君の手の中のケ-キにそれらを知ることで、君のゲ-キの中干涉する。身は様々なものに変化するかもしれない。それは時に望むもの。…でも恐らく、それらのほとんどは、君の望まないものに変化するだるう。」&nbsp;</p>
+<p class="quote">&nbsp;「君の中の真実は、最初から君の手の中にあるんだよ。そしてその中身は、実は君自身が決めているんだ。君が何を間き、何に耳を覆うかで、君自身がその中身を変化させている。」&nbsp;</p>
+<p class="quote">&nbsp;「君の手の中の真実は、不変じやないんだ。それは君に対する様々な干渉で変化してしまう。·だからもし、君がその手の中の真実を大事にしたいと願うなら。」&nbsp;</p>
+<p class="quote">&nbsp;"嘿，你知道吗，有时候做决定就跟挑蛋糕一样。比方说，你去咖啡店，看到有三块蛋糕，其中一块正好是你超爱的杏仁口味。你会觉得，我选的那块的中奖概率应该是三分之一吧？"</p>
+<p class="quote">&nbsp;"但是，如果有人告诉你，其实这些蛋糕是从一百块里随机挑的十块，你会怎么想？你可能会犹豫，说不定我选的那块杏仁蛋糕还真没那么幸运呢？"&nbsp;</p>
+<p class="quote">&nbsp;"虽然你选的蛋糕没变，但是因为知道了这个背景信息，你可能会开始怀疑自己的选择。也许觉得，中奖概率变小了，也可能会觉得，还是坚持原来的选择比较好。"&nbsp;</p>
+<p class="quote">&nbsp;"所以，咱们得明白，我们做决定的时候，外界信息会对我们产生影响。有时候这些信息会让我们改变主意，有时候会让我们更加坚定自己的想法。"&nbsp;</p>
+<p><em><strong>&nbsp;"但最重要的是，无论什么情况，我们的真相其实一直在我们手里。我们的选择、我们的态度决定着最后的结果。只要我们保持警觉，不被外界左右，我们就能够保持真实的稳定。"</strong></em></p>
+<p>这是战人在棋盘中借助让治之口给缘寿的忠告，暗示她在以后继承了右代宫家业之时，有各种各样的势力、言语侵蚀她的内心，造谣六轩岛的悲剧，抹黑她已经逝去的家人，而战人希望她能够尊崇自己内心的真实而不动摇，这也是战人想通过Ep8棋盘中的Monty Hall游戏想传达的。&nbsp;</p>
+<p>&nbsp;海猫的同人算是我接触到的国内质量最高的同人圈了，从音乐到棋盘都很精彩，龙7写海猫用了四年，我也花了三个多月才陆陆续续推完这四百万字的作品，从ep1的魔女棋盘到ep6的推理博弈再到ep8的感动，这一年很不容易，海猫和寒蝉可以算是我失落时、沮丧时坚持下去的动力。</p>
+<p>这个故事，献给最爱的魔女贝阿朵莉切。&nbsp;</p>
+</div>
+            <!-- /.post-content-->
+          </div>
+        </div>
+</div>
+    </section>
+    <section class="background-gray-lightest section--padding-bottom-small">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="text-center text-uppercase margin-bottom">おすすめ&nbsp;</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="../kasugano website/seisi.html"><img src="../kasugano website/img/blog1.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="../kasugano website/seisi.html">关于「ヨスガノソラ」中姓氏的思考</a></h3>
+              <p class="post__intro">「春日野」实际是一个地名，位于如今奈良的春日大社附近，若草山一带，而古语中「春日野」则泛指奈良山下的平原。之所以选定此作为男女主角的姓氏，我认为这不是巧合，这或许是游戏开发人员从日本古典作品「伊勢物語」中得到的的一种文学浪漫。
+
+
+</p>
+              <p class="read-more"><a href="../kasugano website/text.html" class="btn btn-ghost">続き読む     </a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="../kasugano website/seinoninkan.html"><img src="../kasugano website/img/blog8.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="../kasugano website/text.html">从《沉沦》到《性的人》</a></h3>
+              <p class="post__intro"> 不管郁达夫的《沉沦》，还是大江健三郎的《性的人》，其中的青年对未来态度的转变，思想的觉醒，对于不同时代的我们仍有教育意义。两书的作者均用了大胆的笔墨，描写了青年对于未来的迷惘和无所依托，把“性”作为政治的暗喻，体现社会中一代青年的觉醒。</p>
+              <p class="read-more"><a href="../kasugano website/seinoninkan.html" class="btn btn-ghost">続き読む   </a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="../kasugano website/nihongo.html"><img src="../kasugano website/img/blog3.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="../kasugano website/nihongo.html">浅论高中文言文与日本语的联系</a></h3>
+              <p class="post__intro">文言文作为中国文化的精粹，如今也是如今高考语文的重要题型，笔者在平日的重复的文言文题型训练中，总会有一些奇妙的想法，运用周末的空余时间，也想写一篇文章来记录一下自己的思考，全当练笔。本人古汉语和现代日语的水平有限，如有错误之处烦请斧正。
+
+
+</p>
+              <p class="read-more"><a href="../kasugano website/nihongo.html" class="btn btn-ghost">続き読む    </a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p></a>Copyright &copy; 右代宮氏2024作成</a></p>
+            </div>
+            <div class="col-md-6">
+              <p class="credit"></p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Javascript files-->
+    <script src="../kasugano website/js/jquery.min.js"></script>
+    <script src="../kasugano website/js/bootstrap.min.js"></script>
+    <script src="../kasugano website/js/jquery.cookie.js"> </script>
+    <script src="../kasugano website/js/lightbox.min.js"></script>
+    <script src="../kasugano website/js/front.js"></script><!-- substitute:livereload -->
+      </body>
+</html>

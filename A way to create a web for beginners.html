@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>我的个人博客搭建日记</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="../kasugano website/css/bootstrap.min.css">
+    <!-- Font Awesome & Pixeden Icon Stroke icon font-->
+    <link rel="stylesheet" href="../kasugano website/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../kasugano website/css/pe-icon-7-stroke.css">
+    <!-- Google fonts - Roboto Condensed & Roboto-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:300,400">
+    <!-- lightbox-->
+    <link rel="stylesheet" href="../kasugano website/css/lightbox.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="../kasugano website/css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="../kasugano website/css/custom.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="../kasugano website/favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+  </head>
+  <body>
+    <!-- navbar-->
+    <header class="header">
+      <div role="navigation" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header"><a href="../kasugano website/index.html" class="navbar-brand">うしろみや
+          </a>
+            <div class="navbar-buttons">
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+            </div>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+               <li><a href="index.html">公式サイト</a></li>
+               <li class="active"><a href="text.html">魔女の蕃茄園 </a></li>
+             <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">魔女の茶話会
+ <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="hibun.html">右代宮の碑文</a></li>
+                  <li><a href="genga.html">魔女の肖像画</a></li>
+                </ul>
+              </li>
+              <li><a href="../kasugano website/contact.html">連絡先</a></li>
+            </ul>
+</div>
+        </div>
+      </div>
+    </header>
+    <!-- *** LOGIN MODAL ***_________________________________________________________
+    -->
+    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
+            <h4 id="Login" class="modal-title">Customer login</h4>
+          </div>
+          <div class="modal-body">
+            <form action="../kasugano website/customer-orders.html" method="post">
+              <div class="form-group">
+                <input id="email_modal" type="text" placeholder="email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input id="password_modal" type="password" placeholder="password" class="form-control">
+              </div>
+              <p class="text-center">
+                <button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button>
+              </p>
+            </form>
+            <p class="text-center text-muted">Not registered yet?</p>
+            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- *** LOGIN MODAL END ***-->
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+             <li><a href="text.html">魔女の蕃茄園</a></li>
+             <li>学术探讨</li>
+            <li>我的个人博客搭建日记</li>
+          </ul>
+        </div>
+        <h1>我的个人博客搭建日记</h1>
+        <p class="lead">——利用GithubPage静态网页托管 +阿里云域名解析方式搭建博客(beginner-friendly)</p>
+      </div>
+    </section>
+    <section class="blog-post">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="post-content margin-bottom--big">
+<li>2024.08.12 文<br>
+  <blockquote>
+    <p class="text-left"><strong>前言</strong></p>
+  </blockquote>
+<p>&nbsp;这个博客我使用了GithubPage静态网页托管，阿里云域名解析搭建而成。</p>
+  <p>&nbsp;从高中开始我就有自己写文章的习惯，可碍于高中学习繁忙，再加上当时技术力有限，我总是将文章发布到bilibili和知乎专栏。作为一个公众平台，众所周知b站的审核一直比较严，一些涉及敏感话题和词汇的文章往往不允发布。进入大学以后，我逐渐接触社会，对社会上一些热点有了自己的思考，在经历了几次退审过后，我意识到使用运营商代理的博客并非长远之计，恰巧大学里面学习了一些网络和编程相关的知识，便想着手建立一个自己的文章博客，在网上查询了一些先辈的经验后，我发现目前主流的博客建站模式有以下几种:</p>
+  <p>&nbsp;1、使用运营商代理的服务器：既是像bilibili、知乎、QQ空间等公众平台，优点是方便快捷，无需掌握任何网络编程方面的知识，复制粘贴即可一键上传，而且大部分都是免费的，对于学生比较友好。然而缺点也很明显，那就是目前大环境下网络监管越来越严，对于文章里的遣词造句有了一定的限制，而且时刻面临运营商跑路的风险，这可能导致几年运营的心血付之东流。</p>
+  <p>&nbsp;2、利用傻瓜建站平台制作博客：市面上主流的傻瓜建站平台如凡科建站等，可以使用运营商提供好的框架和模板一键建站，有些运营商甚至能提供域名解析的服务，也不需要另外租赁服务器，优点也是方便快捷。缺点是使用已有模板会导致文章的备份比较困难，因为运营商不会向我提供网页JS和CSS的源文件，也有跑路的风险。而且这类傻瓜建站主要服务对象是企业，往往价格昂贵，对于学生的我是一笔不小的开支。</p>
+  <p>&nbsp;3、租赁云服务器+单独购买域名建站：这种方式自由度最高，不过需要一定的网络方面知识，这对传统工科的我来说是一个不小的挑战。在查阅了一些学长的经验帖过后，我选择了GithubPage静态网页托管+阿里云域名解析的方式作为我的建站基础。Github作为全球最大的代码仓库提供了GithubPage服务，能在远端自动构建网页（其实就是一个免费的服务器）。操作也较为简单，只需要git push再简单配置一下就可以直接使用。但是，由于众所周知的原因，Github在国内的连接是不稳定的，可能会出现无法访问的情况。因此，我为GithubPage添加了阿里云提供的域名解析服务，这样能大大加快国内用户访问我的博客的速度，也能提高访问的稳定性。就这样，rokkenshima.fun诞生了。おめでとうおおおお！</p>
+  <blockquote>
+    <p class="text-left"><strong>&nbsp;一 本地网页搭建</strong></p>
+  </blockquote>
+<p>&nbsp;网站的基础是网页，许多前辈在搭建博客时使用了Hugo提供的stack主题，整洁美观，而我以前曾经自学过一段时间HTML语言，我便想重新捡起来锻炼下自己，在本地利用dreamweaver完成了离线搭建，这里涉及到的编程知识便不赘述。其中JavaScript框架也就是网页的动画部分我爬了一段代码（没学过java确实不会写qwq），编写完成后将所有拥戴的网页源文件、图片文件放置于一个文件夹，准备上传云端。</p>
+  <blockquote>
+    <p class="text-left"><strong>&nbsp;二 配置GithubPage</strong></p>
+  </blockquote>
+<p>&nbsp;Github的配置也十分简单，首先创建一个Github的帐号，然后选择create a new repository,即新建一个代码仓库，然后在repository name那一栏填写&lt;用户名称&gt;.github.io，注意必须是Github的用户名称，否则系统无法识别，然后选择public公开。</p>
+<p style="text-align: center;"><img src="../kasugano website/img/web_create1.png" width="700" height="340" alt=""/></p>
+<p>&nbsp; 接着安装git，打开git官网Git (<a href="git-scm.com">git-scm.com</a>)安装正确的版本后，便会在代码仓库的setting-page栏出现了GithubPage的选项，GithubPage的配置暂时告一段落。</p>
+<p style="text-align: center;"><img src="../kasugano website/img/web_create2.png" width="700" height="340" alt=""/></p>
+<blockquote>
+  <p class="text-left"><strong>&nbsp;三 购买域名</strong></p>
+</blockquote>
+<p>&nbsp;
+  打开阿里云，注册账号，在工作台中进入“域名”选项，选择“注册域名”，然后根据自己的喜好选择合适的域名即可。可以注意到.com，.net的域名很贵，作为学生我的建议是可以多多考虑“.xyz”，“.fun”，“.club”等便宜、性价比高的域名。</p>
+<p>&nbsp;最终我选择了rokkenshima.fun，花费了十五米。这一阶段阿里云有全程的傻瓜式是引导，整个过程不超过15min，还是很方便的。</p>
+<blockquote>
+  <p class="text-left"><strong>&nbsp;  四 域名解析</strong></p>
+</blockquote>
+<p>&nbsp;网上许多教程会卡在这一步，根据工信部要求，所有服务器在中国大陆的网站必须进行ICP备案，这一流程十分复杂，准备的材料多、流程耗时长不说，还需要上传备案人的详细身份信息，接受工信部的审查，这一点很明显我是不想见到的（谁想被晶哥查水表呢）。这里便体现出了GitHubPage的第二大优势：Github的服务器在国外，因此为GithubPage添加域名解析时不用进行备案。因此简单配置一下域名解析就好了：</p>
+<p style="text-align: center;"><img src="../kasugano website/img/web_create3.png" width="700" height="338" alt=""/></p>
+<p style="text-align: center;"><img src="../kasugano website/img/web_create4.png" width="700" height="338" alt=""/></p>
+<p>&nbsp;最后回到GitHubPage-setting-page，在custom domain栏填下自己刚买的域名，便大功告成。现在可以通过rokkenshima.fun访问我的博客啦！</p>
+<p style="text-align: center;"><img src="../kasugano website/img/web_create5.png" width="700" height="338" alt=""/></p>
+<blockquote>
+  <p class="text-left"><strong>五 感想&amp;吐槽&nbsp;</strong></p>
+</blockquote>
+<p>&nbsp;这几天搭建博客的过程不是一帆风顺的，踩了很多坑，比如租赁了三个月腾讯云ECS轻量服务器，但后来看了学长的帖子后发现了GitHubPage的方法，浪费了很多米。除此以外由于之前用的国内服务器，最棘手的点莫过于域名解析，要上传各种证件、人脸识别、而由于我本人不在上海，无法完成地域验证，导致卡在这一步很久，而网上公开的资料也不足以支持我解决这一问题，后来万幸汲取了先辈的建议，可以说是“柳暗花明又一村“了。这几天我也高强度的在google上浏览别人的博客，学习其他人优秀的设计，引用到我的rokkenshima这个互联网的小岛上。</p>
+<p>&nbsp;本人是一个资深的海猫迷，《うみねこのなく頃に》（海猫鸣泣之时）是日本同人社团07th Expansion开发的一款文字冒险类游戏，于2007年8月17日发行。我高中时花了四个月推完了这部四百万字的作品，海猫背后的思想对我的影响很大，所以我选择了游戏发生的舞台“rokkenjima“（六轩岛）作为我博客的主题，海猫的同人算是我接触到的国内质量最高的同人圈了，从ep1的魔女棋盘到ep6的推理博弈再到ep8的感动，这一年很不容易，海猫和寒蝉可以算是我失落时、沮丧时坚持下去的动力，这个故事，献给我最爱的魔女贝阿朵莉切。</p>
+<p>&nbsp; 最后也感谢各位的浏览，欢迎大家通过邮箱与我提建议。ご覧になるのはありがとう！よろしくお願いします！</p>
+</div>
+            <!-- /.post-content-->
+          </div>
+        </div>
+</div>
+    </section>
+    <section class="background-gray-lightest section--padding-bottom-small">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="text-center text-uppercase margin-bottom">おすすめ&nbsp;</h4>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="../kasugano website/montyhall.html"><img src="../kasugano website/img/blog12.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="../kasugano website/montyhall.html">「うみねこのなく頃に」Episode 8中的Monty Hall问题思考</a></h3>
+              <p class="post__intro">「うみねこのなく頃に」是我特别喜欢的一系列作品，也对我影响特别大。这部参照莎士比亚《无事生非》中人物设定的同人游戏，从出题篇的文笔的波诡云谲，到解题篇的真相大白，其中的悬疑诡计堪称一绝。
+
+
+              </p>
+              <p class="read-more"><a href="../kasugano website/montyhall.html" class="btn btn-ghost">続き読む     </a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="../kasugano website/seinoninkan.html"><img src="../kasugano website/img/blog8.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="../kasugano website/text.html">从《沉沦》到《性的人》</a></h3>
+              <p class="post__intro"> 不管郁达夫的《沉沦》，还是大江健三郎的《性的人》，其中的青年对未来态度的转变，思想的觉醒，对于不同时代的我们仍有教育意义。两书的作者均用了大胆的笔墨，描写了青年对于未来的迷惘和无所依托，把“性”作为政治的暗喻，体现社会中一代青年的觉醒。</p>
+              <p class="read-more"><a href="../kasugano website/seinoninkan.html" class="btn btn-ghost">続き読む   </a></p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="post">
+              <div class="image"><a href="../kasugano website/essay1.html"><img src="../kasugano website/img/blog10.jpg" alt="" class="img-responsive"></a></div>
+              <h3><a href="essay1.html">嘉興南湖の畔に随筆</a></h3>
+<p class="post__intro">牧歌的な時代はもはや昔くなった、この騒々しい社会では、私たちは常に忙しくて、「自由で無用」という言葉は、忙しい私たちにとって自省の言葉です。今日の生活の「小確幸」を見つけることができるとき、これは一日の時間が無駄にならないということです。
+
+
+            </p>
+              <p class="read-more"><a href="../kasugano website/essay1.html" class="btn btn-ghost">続き読む    </a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="footer__copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p></a>Copyright &copy; 右代宮氏2024作成</a></p>
+            </div>
+            <div class="col-md-6">
+              <p class="credit"></p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Javascript files-->
+    <script src="../kasugano website/js/jquery.min.js"></script>
+    <script src="../kasugano website/js/bootstrap.min.js"></script>
+    <script src="../kasugano website/js/jquery.cookie.js"> </script>
+    <script src="../kasugano website/js/lightbox.min.js"></script>
+    <script src="../kasugano website/js/front.js"></script><!-- substitute:livereload -->
+      </body>
+</html>
