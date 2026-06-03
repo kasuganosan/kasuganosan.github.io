@@ -3,10 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>eden</title>
-    <meta name="description" content="">
+    <title>eden — うしろみや</title>
+    <meta name="description" content="昙花一现，因为昙花的花期短暂，所以人们难得一见而视珍贵。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="《Eden*》—鸟笼中的救赎之诗">
+    <meta property="og:description" content="昙花一现，因为昙花的花期短暂，所以人们难得一见而视珍贵。">
+    <meta property="og:image" content="img/blog4.jpg">
+    <meta property="og:url" content="https://rokkenshima.fun/eden.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2021-08-28">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://rokkenshima.fun/eden.html">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Font Awesome & Pixeden Icon Stroke icon font-->
@@ -20,13 +29,37 @@
     <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/blog-enhance.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-  </head>
+      <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "《Eden*》—鸟笼中的救赎之诗",
+      "description": "昙花一现，因为昙花的花期短暂，所以人们难得一见而视珍贵。",
+      "image": "img/blog4.jpg",
+      "datePublished": "2021-08-28",
+      "author": { "@type": "Person", "name": "右代宮氏" },
+      "publisher": { "@type": "Person", "name": "右代宮氏" },
+      "url": "https://rokkenshima.fun/eden.html"
+    }
+    </script>
+</head>
   <body>
+    <div id="progress-bar"></div>
+    <!-- Search Overlay -->
+    <div id="search-overlay">
+      <button id="search-close" aria-label="关闭搜索">&times;</button>
+      <div class="search-overlay-inner">
+        <input type="text" id="search-input" placeholder="搜索文章..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
     <!-- navbar-->
     <header class="header">
       <div role="navigation" class="navbar navbar-default">
@@ -36,6 +69,8 @@
             <div class="navbar-buttons">
               <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
             </div>
+            <button id="search-toggle" class="search-toggle" aria-label="搜索"><i class="fa fa-search"></i></button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fa fa-moon-o"></i></button>
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
@@ -62,32 +97,7 @@
         </div>
       </div>
     </header>
-    <!-- *** LOGIN MODAL ***_________________________________________________________
-    -->
-    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">×</button>
-            <h4 id="Login" class="modal-title">Customer login</h4>
-          </div>
-          <div class="modal-body">
-            <form action="customer-orders.html" method="post">
-              <div class="form-group">
-                <input id="email_modal" type="text" placeholder="email" class="form-control">
-              </div>
-              <div class="form-group">
-                <input id="password_modal" type="password" placeholder="password" class="form-control">
-              </div>
-              <p class="text-center"><button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button></p>
-            </form>
-            <p class="text-center text-muted">Not registered yet?</p>
-            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- *** LOGIN MODAL END ***-->
+    <!-- login modal removed -->
     <section class="background-gray-lightest">
       <div class="container">
         <div class="breadcrumbs">
@@ -105,8 +115,14 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <div class="post-content margin-bottom--big">
-<li>2021.08.28 文<br>
+            <details class="toc-container">
+            <summary>目录</summary>
+            <nav class="toc-nav"></nav>
+          </details>
+          <div class="post-content margin-bottom--big" data-article-id="eden" data-category="游戏测评" data-tags="galgame,视觉小说,游戏测评,Eden" data-date="2021-08-28">
+<li>2021.08.28 文</li>
+<span class="reading-time"></span>
+<br>
 <div class="row">
   <div class="col-sm-6">
     <div class="post">
@@ -182,6 +198,12 @@
 <p class="quote text-center">「带我走吧，无论多远的地方」</p>
 <p class="quote text-center">「おやすみ、詩音、そして、ありがどう」</p>
 </div>
+            <div class="share-buttons">
+            <span>分享:</span>
+            <button class="share-btn" data-platform="twitter" title="分享到 Twitter"><i class="fa fa-twitter"></i></button>
+            <button class="share-btn" data-platform="weibo" title="分享到微博"><i class="fa fa-weibo"></i></button>
+            <button class="share-btn" data-platform="copy" title="复制链接"><i class="fa fa-link"></i></button>
+          </div>
             <!-- /.post-content-->
           </div>
         </div>
@@ -214,39 +236,19 @@
       </div>
     </section>
 
-    <section class="background-gray-lightest section--padding-bottom-small">
+    <nav class="article-nav">
+          <span class="article-nav-placeholder"></span>
+          <a class="article-nav-next" href="wukong.html">《黑神话：悟空》游戏测评 &rarr;</a>
+        </nav>
+      <section class="related-posts-section background-gray-lightest section--padding-bottom-small">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h4 class="text-center text-uppercase margin-bottom">おすすめ&nbsp;</h4>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="post">
-              <div class="image"><a href="wa2.html"><img src="img/blog5.jpg" alt="" class="img-responsive"></a></div>
-              <h3><a href="wa2.html">梦里不觉秋已深，余情岂是为他人</a></h3>
-              <p class="post__intro">ホワイトアルバム，なんて知らないだって、もう何も歌えない届かない，恋なんてしないだって、もう人を爱せない</p>
-              <p class="read-more"><a href="wa2.html" class="btn btn-ghost">続き読む</a></p>
+            <h4 class="text-center text-uppercase margin-bottom">おすすめ</h4>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="post">
-              <div class="image"><a href="kankyo.html"><img src="img/blog2.jpg" alt="" class="img-responsive"></a></div>
-              <h3><a href="kankyo.html">浅谈环境描写在galgame中的应用</a></h3>
-              <p class="post__intro">视觉小说能做到“二维化”，用图像和文字让读者有更沉浸的体验，当然这在某种程度上却牺牲了人的想象力，玩家虽不能像阅读传统小说那样有着自己的的世界观理解，但同时导演却能更准确的向玩家授意自己的想法，仿佛观看一部电影般，娓娓道来。</p>
-              <p class="read-more"><a href="kankyo.html" class="btn btn-ghost">続き読む</a></p>
-            </div>
+          <div class="row related-posts" data-article="eden">
           </div>
-          <div class="col-sm-4">
-            <div class="post">
-              <div class="image"><a href="koureika.html"><img src="img/blog22.jpg" alt="" class="img-responsive"></a></div>
-              <h3><a href="koureika.html">美少女ゲーム業界の高齢化について：こんなおっさんと一緒に、どうやっていい美少女ゲームが作れるっていうのよ！</a></h3>
-              <p class="post__intro">老龄化浪潮对游戏行业造成了严重冲击，尤其是在倾向于高度个性化的美少女游戏领域。</p>
-              <p class="read-more"><a href="koureika.html" class="btn btn-ghost">続き読む</a></p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 <footer class="footer">
@@ -254,7 +256,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <p></a>Copyright &copy; 右代宮氏2024作成</a></p>
+              <p>Copyright &copy; 右代宮氏 2024-2026</p>
             </div>
             <div class="col-md-6">
               <p class="credit"></p>
@@ -270,5 +272,8 @@
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/lightbox.min.js"></script>
     <script src="js/front.js"></script><!-- substitute:livereload -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script src="js/blog-core.js"></script>
+    <button id="back-to-top" aria-label="返回顶部"><i class="fa fa-chevron-up"></i></button>
       </body>
 </html>

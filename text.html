@@ -3,10 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>魔女の蕃茄園</title>
-    <meta name="description" content="">
+    <title>魔女の蕃茄園 — うしろみや</title>
+    <meta name="description" content="右代宮氏のブログ文章アーカイブ。ゲームレビュー、社会思考、学術探求、文学芸術、人生雑筆の5カテゴリ。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="魔女の蕃茄園 — 文章アーカイブ">
+    <meta property="og:description" content="右代宮氏のブログ文章アーカイブ。ゲームレビュー、社会思考、学術探求、文学芸術、人生雑筆の5カテゴリ。">
+    <meta property="og:image" content="../kasugano website/img/text1.jpg">
+    <meta property="og:url" content="https://rokkenshima.fun/text.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://rokkenshima.fun/text.html">
     <!-- Bootstrap CSS-->
     <link rel="stylesheet" href="../kasugano website/css/bootstrap.min.css">
     <!-- Font Awesome & Pixeden Icon Stroke icon font-->
@@ -20,6 +28,7 @@
     <link rel="stylesheet" href="../kasugano website/css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="../kasugano website/css/custom.css">
+    <link rel="stylesheet" href="../kasugano website/css/blog-enhance.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="../kasugano website/favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -27,6 +36,15 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
   <body>
+    <div id="progress-bar"></div>
+    <!-- Search Overlay -->
+    <div id="search-overlay">
+      <button id="search-close" aria-label="关闭搜索">&times;</button>
+      <div class="search-overlay-inner">
+        <input type="text" id="search-input" placeholder="搜索文章..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
     <!-- navbar-->
     <header class="header">
       <div role="navigation" class="navbar navbar-default">
@@ -36,6 +54,8 @@
             <div class="navbar-buttons">
               <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
             </div>
+            <button id="search-toggle" class="search-toggle" aria-label="搜索"><i class="fa fa-search"></i></button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fa fa-moon-o"></i></button>
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
@@ -60,31 +80,7 @@
       </div>
     </header>
 
-    <!-- *** LOGIN MODAL ***-->
-    <div id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true" class="modal fade">
-      <div class="modal-dialog modal-sm">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" data-dismiss="modal" aria-hidden="true" class="close">&times;</button>
-            <h4 id="Login" class="modal-title">Customer login</h4>
-          </div>
-          <div class="modal-body">
-            <form action="../kasugano website/customer-orders.html" method="post">
-              <div class="form-group">
-                <input id="email_modal" type="text" placeholder="email" class="form-control">
-              </div>
-              <div class="form-group">
-                <input id="password_modal" type="password" placeholder="password" class="form-control">
-              </div>
-              <p class="text-center"><button type="button" class="btn btn-primary"><i class="fa fa-sign-in"></i> Log in</button></p>
-            </form>
-            <p class="text-center text-muted">Not registered yet?</p>
-            <p class="text-center text-muted"><a href="#"><strong>Register now</strong></a>! It is easy and done in 1 minute and gives you access to special discounts and much more!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- *** LOGIN MODAL END ***-->
+    <!-- login modal removed -->
 
     <!-- Hero -->
     <section class="background-gray-lightest" style="position: relative; background-image: url('../kasugano website/img/text1.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
@@ -101,6 +97,30 @@
       </div>
     </section>
 
+    <!-- Search + Tags -->
+    <section style="padding-top: 32px; padding-bottom: 0;">
+      <div class="container">
+        <div class="inline-search">
+          <input type="text" id="inline-search-input" placeholder="搜索文章..." autocomplete="off">
+        </div>
+        <div id="inline-search-results" class="inline-search-results"></div>
+        <div class="tag-cloud">
+          <span class="tag-cloud-label">标签:</span>
+          <button class="tag-pill" data-tag="日本">日本</button>
+          <button class="tag-pill" data-tag="galgame">galgame</button>
+          <button class="tag-pill" data-tag="社会">社会</button>
+          <button class="tag-pill" data-tag="日语">日语</button>
+          <button class="tag-pill" data-tag="旅行">旅行</button>
+          <button class="tag-pill" data-tag="文学">文学</button>
+          <button class="tag-pill" data-tag="游戏测评">游戏测评</button>
+          <button class="tag-pill" data-tag="ACG">ACG</button>
+          <button class="tag-pill" data-tag="中国">中国</button>
+          <button class="tag-pill" data-tag="语言学">语言学</button>
+          <button class="tag-pill" data-tag="思考">思考</button>
+          <button class="tag-pill" data-tag="文化">文化</button>
+        </div>
+      </div>
+    </section>
     <!-- Category Grid -->
     <section style="padding-top: 56px; padding-bottom: 56px;">
       <div class="container">
@@ -112,11 +132,11 @@
               <h3>游戏测评</h3>
             </div>
             <ul class="category-list">
-              <li><a href="eden.html">《Eden*》&mdash; 鸟笼中的救赎之诗</a></li>
-              <li><a href="wukong.html">《黑神话：悟空》&mdash; 是起点，也仅仅是起点</a></li>
-              <li><a href="wa2.html">梦里不觉秋已深，余情岂是为他人 &mdash; WHITE ALBUM2</a></li>
-              <li><a href="seisi.html">关于「ヨスガノソラ」中姓氏的思考</a></li>
-              <li><a href="kankyo.html">浅谈环境描写在 galgame 中的应用</a></li>
+              <li data-tags="galgame,视觉小说,游戏测评"><a href="eden.html">《Eden*》&mdash; 鸟笼中的救赎之诗</a></li>
+              <li data-tags="游戏测评,中国文化"><a href="wukong.html">《黑神话：悟空》&mdash; 是起点，也仅仅是起点</a></li>
+              <li data-tags="galgame,视觉小说,游戏测评"><a href="wa2.html">梦里不觉秋已深，余情岂是为他人 &mdash; WHITE ALBUM2</a></li>
+              <li data-tags="galgame,日本文化,文学"><a href="seisi.html">关于「ヨスガノソラ」中姓氏的思考</a></li>
+              <li data-tags="galgame,视觉小说,文学分析"><a href="kankyo.html">浅谈环境描写在 galgame 中的应用</a></li>
             </ul>
           </div>
 
@@ -126,15 +146,15 @@
               <h3>社会思考</h3>
             </div>
             <ul class="category-list">
-              <li><a href="kagaminakanonippon.html"><span class="art-date">11/23</span>镜中日本：从昭和自信到右倾迷失</a></li>
-              <li><a href="kokusou.html"><span class="art-date">10/15</span>参加国创赛志愿者的经历及所思</a></li>
-              <li><a href="hannichi.html"><span class="art-date">9/19</span>中国で溢れた「反日教育」が根深すぎる</a></li>
-              <li><a href="matsuri.html"><span class="art-date">8/12</span>由传统祭祀习俗引发的思考</a></li>
-              <li><a href="chuui.html">为什么国家要大力推广中医？</a></li>
-              <li><a href="wakamono.html">日本の若者なんか日本人っぽくないよね？</a></li>
-              <li><a href="nijigen.html">新老二次元之争 &mdash; 从漫展经历聊起</a></li>
-              <li><a href="seinen.html">中国青年の人生が一目で尽きるほどか？</a></li>
-              <li><a href="koureika.html">美少女ゲーム業界の高齢化について</a></li>
+              <li data-tags="日本,社会,政治,文化认同"><a href="kagaminakanonippon.html"><span class="art-date">11/23</span>镜中日本：从昭和自信到右倾迷失</a></li>
+              <li data-tags="大学,社会,思考"><a href="kokusou.html"><span class="art-date">10/15</span>参加国创赛志愿者的经历及所思</a></li>
+              <li data-tags="中日关系,教育,社会,政治"><a href="hannichi.html"><span class="art-date">9/19</span>中国で溢れた「反日教育」が根深すぎる</a></li>
+              <li data-tags="传统,爱国,社会,文化"><a href="matsuri.html"><span class="art-date">8/12</span>由传统祭祀习俗引发的思考</a></li>
+              <li data-tags="中医,社会,政策,思考"><a href="chuui.html">为什么国家要大力推广中医？</a></li>
+              <li data-tags="日本,青年,文化,社会"><a href="wakamono.html">日本の若者なんか日本人っぽくないよね？</a></li>
+              <li data-tags="ACG,二次元,文化,社会"><a href="nijigen.html">新老二次元之争 &mdash; 从漫展经历聊起</a></li>
+              <li data-tags="中国,青年,社会,教育"><a href="seinen.html">中国青年の人生が一目で尽きるほどか？</a></li>
+              <li data-tags="galgame,行业,老龄化,社会"><a href="koureika.html">美少女ゲーム業界の高齢化について</a></li>
             </ul>
           </div>
 
@@ -144,12 +164,12 @@
               <h3>学术探讨</h3>
             </div>
             <ul class="category-list">
-              <li><a href="kundo.html">訓読みを解くに基づくのメモリー</a></li>
-              <li><a href="gaigo.html">一些外语学习的思考 &mdash; N2 备考感悟</a></li>
-              <li><a href="douji.html">N1 动词生僻汉字整理（御浚い順）</a></li>
-              <li><a href="ateji.html">「当て字」についての考え&hellip;</a></li>
-              <li><a href="montyhall.html">「うみねこのなく頃に」Monty Hall 问题思考</a></li>
-              <li><a href="A way to create a web for beginners.html">个人博客搭建日记 &mdash; GitHub Pages + 阿里云</a></li>
+              <li data-tags="日语,训读,语言学,学习"><a href="kundo.html">訓読みを解くに基づくのメモリー</a></li>
+              <li data-tags="日语,学习,外语,语言"><a href="gaigo.html">一些外语学习的思考 &mdash; N2 备考感悟</a></li>
+              <li data-tags="日语,汉字,语言学"><a href="douji.html">N1 动词生僻汉字整理（御浚い順）</a></li>
+              <li data-tags="日语,修辞,语言学"><a href="ateji.html">「当て字」についての考え&hellip;</a></li>
+              <li data-tags="数学,概率,游戏"><a href="montyhall.html">「うみねこのなく頃に」Monty Hall 问题思考</a></li>
+              <li data-tags="博客,技术,建站"><a href="A way to create a web for beginners.html">个人博客搭建日记 &mdash; GitHub Pages + 阿里云</a></li>
             </ul>
           </div>
 
@@ -159,8 +179,8 @@
               <h3>文学艺术</h3>
             </div>
             <ul class="category-list">
-              <li><a href="nihongo.html">浅论高中文言文与日本语的联系</a></li>
-              <li><a href="seinoninkan.html">从《沉沦》到《性的人》</a></li>
+              <li data-tags="文言文,日语,语言,文学,教育"><a href="nihongo.html">浅论高中文言文与日本语的联系</a></li>
+              <li data-tags="文学,比较文学"><a href="seinoninkan.html">从《沉沦》到《性的人》</a></li>
             </ul>
           </div>
 
@@ -170,9 +190,9 @@
               <h3>人生杂笔</h3>
             </div>
             <ul class="category-list">
-              <li><a href="essay1.html">嘉興南湖の畔に随筆</a></li>
-              <li><a href="hokkaido.html">北海道观察日记 &mdash; 道北线旅行记录</a></li>
-              <li><a href="sikoku.html">四国横断记 &mdash; 神户 &middot; 松山 &middot; 西濑户</a></li>
+              <li data-tags="随笔,生活,思考"><a href="essay1.html">嘉興南湖の畔に随筆</a></li>
+              <li data-tags="旅行,日本,北海道,游记"><a href="hokkaido.html">北海道观察日记 &mdash; 道北线旅行记录</a></li>
+              <li data-tags="旅行,日本,四国,游记"><a href="sikoku.html">四国横断记 &mdash; 神户 &middot; 松山 &middot; 西濑户</a></li>
             </ul>
           </div>
 
@@ -186,7 +206,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <p>Copyright &copy; 右代宮氏2024作成</p>
+              <p>Copyright &copy; 右代宮氏 2024-2026</p>
             </div>
             <div class="col-md-6">
               <p class="credit"></p>
@@ -198,6 +218,9 @@
 
     <!-- Javascript files-->
     <script src="../kasugano website/js/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script src="../kasugano website/js/blog-core.js"></script>
+    <button id="back-to-top" aria-label="返回顶部"><i class="fa fa-chevron-up"></i></button>
     <script src="../kasugano website/js/bootstrap.min.js"></script>
     <script src="../kasugano website/js/jquery.cookie.js"></script>
     <script src="../kasugano website/js/lightbox.min.js"></script>
