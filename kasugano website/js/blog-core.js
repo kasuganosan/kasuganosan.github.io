@@ -204,6 +204,7 @@
         inlineInput.addEventListener('input', function () {
           inlineSearch(inlineInput.value);
         });
+        if (inlineInput.value) inlineSearch(inlineInput.value);
         inlineInput.addEventListener('keydown', function (e) {
           if (e.key === 'Escape') {
             inlineInput.value = '';
@@ -253,8 +254,7 @@
         searchResults.innerHTML = '';
         return;
       }
-      if (!fuse) return;
-      var results = fuse.search(query).slice(0, 12);
+      var results = searchArticles(query, 12);
       if (results.length === 0) {
         searchResults.innerHTML = '<div class="search-empty">没有找到相关文章</div>';
         return;
@@ -318,6 +318,17 @@
     xhr.send();
   }
 
+  // Keep article discovery available when the optional search CDN cannot load.
+  function searchArticles(query, limit) {
+    if (fuse) return fuse.search(query).slice(0, limit);
+    var terms = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+    if (!terms.length) return [];
+    return (searchIndex || []).filter(function (item) {
+      var text = [item.title, item.excerpt, item.category].concat(item.tags || []).join(' ').toLowerCase();
+      return terms.every(function (term) { return text.indexOf(term) !== -1; });
+    }).slice(0, limit).map(function (item) { return { item: item }; });
+  }
+
   function inlineSearch(query) {
     var resultsContainer = document.getElementById('inline-search-results');
     if (!resultsContainer) return;
@@ -332,8 +343,7 @@
     var grid = document.querySelector('.category-grid');
     if (grid) grid.style.display = 'none';
 
-    if (!fuse) return;
-    var results = fuse.search(query).slice(0, 15);
+    var results = searchArticles(query, 15);
     if (results.length === 0) {
       resultsContainer.innerHTML = '<p style="text-align:center;color:var(--muted);padding:24px;">未找到匹配文章</p>';
       return;
