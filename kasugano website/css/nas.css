@@ -1,0 +1,286 @@
+/* NAS article: inherit the blog palette and keep technical content readable. */
+.nas-article {
+  overflow-wrap: anywhere;
+}
+
+.nas-page .blog-post .container > .row > .col-lg-12 {
+  width: 100%;
+  min-width: 0;
+}
+
+.nas-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.nas-article h2 {
+  scroll-margin-top: 32px;
+  line-height: 1.5;
+}
+
+.nas-article figure {
+  margin: 30px 0;
+  min-width: 0;
+  text-align: center;
+}
+
+.blog-post .nas-article figure img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  margin: 0 auto;
+}
+
+.nas-article figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.nas-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  align-items: center;
+  margin: 30px 0;
+}
+
+.nas-gallery figure {
+  margin: 0;
+}
+
+.nas-article .code-block {
+  margin: 26px 0;
+  overflow: hidden;
+  border: 1px solid #344352;
+  border-radius: 9px;
+  background: #17212b;
+  box-shadow: 0 8px 22px rgba(17, 24, 32, 0.12);
+}
+
+.code-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 45px;
+  padding: 8px 16px;
+  border-bottom: 1px solid #344352;
+  background: #202d39;
+  color: #b5c2cf;
+  font: 12px/1.5 Consolas, "Liberation Mono", "Microsoft YaHei", monospace;
+}
+
+.code-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  min-width: 0;
+}
+
+.code-label::before {
+  content: ">_";
+  color: #85c6b0;
+  font-weight: 700;
+}
+
+.code-kind {
+  color: #a0afbe;
+}
+
+.code-copy {
+  flex-shrink: 0;
+  padding: 4px 9px;
+  border: 1px solid #566779;
+  border-radius: 4px;
+  background: transparent;
+  color: #d9e2ec;
+  font: inherit;
+  cursor: pointer;
+}
+
+.code-copy:hover,
+.code-copy:focus-visible {
+  border-color: #85c6b0;
+  color: #b5e7d6;
+  background: #2c3d48;
+}
+
+.code-copy:focus-visible,
+.nas-article pre:focus-visible {
+  outline: 2px solid #85c6b0;
+  outline-offset: -3px;
+}
+
+.nas-article pre {
+  padding: 20px;
+  margin: 26px 0;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #344352;
+  border-radius: 9px;
+  background: #17212b;
+  color: #e0e8f0;
+  font-size: 14px;
+  line-height: 1.9;
+  text-align: left;
+  tab-size: 4;
+  white-space: pre;
+  overflow-wrap: normal;
+  word-break: normal;
+  scrollbar-width: thin;
+  scrollbar-color: #5c6e80 #17212b;
+}
+
+.nas-article .code-block pre {
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+}
+
+.nas-article pre code {
+  padding: 0;
+  color: inherit;
+  background: transparent;
+  font-family: "Cascadia Code", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+  font-size: inherit;
+  line-height: inherit;
+  white-space: inherit;
+}
+
+.nas-article pre .code-command { color: #8ddbc2; }
+.nas-article pre .code-option { color: #b9b1ef; }
+.nas-article pre .code-value { color: #edcb8a; }
+.nas-article pre .code-error { color: #ff9f9f; }
+.nas-article pre .code-status { color: #8ddbc2; }
+.nas-article pre .code-path { color: #99cdf0; }
+
+.nas-article p code,
+.nas-article li code {
+  padding: 2px 6px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--surface-soft);
+  color: var(--ink);
+  font-family: "Cascadia Code", Consolas, "Liberation Mono", monospace;
+  font-size: 0.88em;
+  overflow-wrap: anywhere;
+}
+
+.nas-table {
+  width: 100%;
+  margin: 28px 0;
+  border-collapse: collapse;
+  color: var(--ink);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.nas-table th,
+.nas-table td {
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.nas-table thead,
+.nas-table tbody th {
+  background: var(--surface-soft);
+}
+
+.nas-table tbody th {
+  width: 24%;
+  min-width: 70px;
+}
+
+.blog-post .nas-article .nas-route {
+  padding: 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-soft);
+  text-indent: 0;
+}
+
+@media (max-width: 1199px) {
+  .nas-page .search-toggle { right: 56px; }
+  .nas-page .theme-toggle { right: 16px; }
+  .nas-page .navbar-right { margin-right: 85px; }
+}
+
+@media (max-width: 767px) {
+  .nas-page .search-toggle { right: 138px; }
+  .nas-page .theme-toggle { right: 100px; }
+  .nas-page .navbar-right { margin-right: -15px; }
+  .nas-page .search-toggle,
+  .nas-page .theme-toggle {
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nas-gallery {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .nas-table th,
+  .nas-table td {
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .nas-article pre {
+    padding: 16px;
+    font-size: 13px;
+  }
+
+  .code-toolbar {
+    padding: 8px 12px;
+    gap: 8px;
+  }
+
+  .code-label {
+    gap: 6px;
+  }
+}
+
+@media print {
+  .nas-article figure,
+  .nas-table,
+  .nas-article .code-block {
+    break-inside: avoid;
+  }
+
+  .code-copy {
+    display: none;
+  }
+
+  .nas-article .code-block,
+  .code-toolbar,
+  .nas-article pre {
+    background: #fff;
+    box-shadow: none;
+    color: #111;
+    border-color: #aaa;
+  }
+
+  .nas-article pre [class^="code-"],
+  .code-label::before,
+  .code-kind {
+    color: inherit;
+  }
+
+  .nas-article pre {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+}
