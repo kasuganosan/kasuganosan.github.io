@@ -1,4 +1,5 @@
 [
+  {"id":"nas","title":"我的diy NAS搭建详细记录","category":"学术探讨","url":"nas.html","date":"2026-09-03","image":"img/nas/nas-01.webp","excerpt":"让一台2014年的联想老电脑重新成为家用 NAS：记录硬件维修与升级、飞牛 OS 安装、公网 IPv6 与 DDNS、HTTPS 远程访问，以及 Docker 和 iCloud 照片备份的折腾过程。","tags":["NAS","DIY","技术","飞牛OS","IPv6","DDNS","Docker","iCloud"]},
   {"id":"sikoku","title":"四国横断记 ——神户-松山-西濑户旅行记录","category":"人生杂笔","url":"sikoku.html","date":"2025-08-27","image":"img/blog24.jpg","excerpt":"我沿着四国岛濑户内海海岸线而行，并未去四国南面土佐高知的山区，但即使是香川的高松，也弥漫着一股与本州截然不同的封闭与消沉","tags":["旅行","日本","四国","游记"]},
   {"id":"hokkaido","title":"北海道观察日记 ——道北线旅行记录","category":"人生杂笔","url":"hokkaido.html","date":"2025-02-15","image":"img/blog17.jpg","excerpt":"从大阪关西机场乘坐乐桃航空MM113号航班，我们开始了为期四天的北海道旅程","tags":["旅行","日本","北海道","游记"]},
   {"id":"essay1","title":"嘉興南湖の畔に随筆","category":"人生杂笔","url":"essay1.html","date":"2025-06-10","image":"img/blog10.jpg","excerpt":"牧歌的な時代はもはや昔くなった、この騒々しい社会では、私たちは常に忙しくて","tags":["随笔","生活","思考"]},
@@ -6,7 +7,6 @@
   {"id":"wukong","title":"《黑神话：悟空》游戏测评","category":"游戏测评","url":"wukong.html","date":"2024-08-28","image":"img/blog15.jpg","excerpt":"随着大圣残躯被击败，用时55小时，我通关了国产首部3A游戏《黑神话：悟空》","tags":["游戏测评","黑神话悟空","3A","中国文化"]},
   {"id":"wa2","title":"梦里不觉秋已深，余情岂是为他人","category":"游戏测评","url":"wa2.html","date":"2023-12-20","image":"img/blog5.jpg","excerpt":"ホワイトアルバム、なんて知らないだって、もう何も歌えない届かない","tags":["galgame","WHITE ALBUM2","视觉小说","游戏测评"]},
   {"id":"seisi","title":"关于「ヨスガノソラ」中姓氏的思考","category":"游戏测评","url":"seisi.html","date":"2023-08-15","image":"img/blog1.jpg","excerpt":"「春日野」实际是一个地名，位于如今奈良的春日大社附近，若草山一带","tags":["galgame","ヨスガノソラ","日本文化","文学"]},
-  {"id":"kankyo","title":"浅谈环境描写在galgame中的应用","category":"游戏测评","url":"kankyo.html","date":"2023-06-22","image":"img/blog2.jpg","excerpt":"视觉小说能做到二维化，用图像和文字让读者有更沉浸的体验","tags":["galgame","视觉小说","文学分析","环境描写"]},
   {"id":"kagaminakanonippon","title":"镜中日本：从昭和自信到右倾迷失","category":"社会思考","url":"kagaminakanonippon.html","date":"2024-11-23","image":"img/blog26.jpg","excerpt":"前段时间我曾写过一篇文章，文中我表达了对现代日本青年越来越没有文化认同感现象的惋惜","tags":["日本","社会","政治","文化认同"]},
   {"id":"kokusou","title":"参加国创赛志愿者的经历及所思","category":"社会思考","url":"kokusou.html","date":"2024-10-15","image":"img/blog20.jpg","excerpt":"今年的中国国际大学生创新大赛在sjtu举行，比赛阵势很大，甚至全校需要停课四天来保证活动顺利举行","tags":["大学","志愿者","社会","思考","SJTU"]},
   {"id":"hannichi","title":"中国で溢れた「反日教育」根深すぎる","category":"社会思考","url":"hannichi.html","date":"2024-09-19","image":"img/blog18.jpg","excerpt":"批判的な思考力がある進歩的な青年を早急に育成すべきと思われる","tags":["中日关系","教育","社会","政治"]},
