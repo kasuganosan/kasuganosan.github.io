@@ -5,8 +5,16 @@
     <link>https://rokkenshima.fun</link>
     <description>ゲームレビュー、社会思考、学術探求、文学芸術、人生雑筆。愛がなければ視えない。</description>
     <language>zh-CN</language>
-    <lastBuildDate>2025-08-27T00:00:00+08:00</lastBuildDate>
+    <lastBuildDate>Thu, 03 Sep 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://rokkenshima.fun/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>我的diy NAS搭建详细记录</title>
+      <link>https://rokkenshima.fun/nas.html</link>
+      <guid>https://rokkenshima.fun/nas.html</guid>
+      <pubDate>Thu, 03 Sep 2026 00:00:00 +0800</pubDate>
+      <description>让一台2014年的联想老电脑重新成为家用 NAS：记录硬件维修与升级、飞牛 OS 安装、公网 IPv6 与 DDNS、HTTPS 远程访问，以及 Docker 和 iCloud 照片备份的折腾过程。</description>
+      <category>学术探讨</category>
+    </item>
     <item>
       <title>四国横断记 ——神户-松山-西濑户旅行记录</title>
       <link>https://rokkenshima.fun/sikoku.html</link>
@@ -181,14 +189,6 @@
       <guid>https://rokkenshima.fun/seisi.html</guid>
       <pubDate>Tue, 15 Aug 2023 00:00:00 +0800</pubDate>
       <description>「春日野」实际是一个地名，位于如今奈良的春日大社附近，若草山一带，而古语中「春日野」则泛指奈良山下的平原。</description>
-      <category>游戏测评</category>
-    </item>
-    <item>
-      <title>浅谈环境描写在galgame中的应用</title>
-      <link>https://rokkenshima.fun/kankyo.html</link>
-      <guid>https://rokkenshima.fun/kankyo.html</guid>
-      <pubDate>Thu, 22 Jun 2023 00:00:00 +0800</pubDate>
-      <description>视觉小说能做到"二维化"，用图像和文字让读者有更沉浸的体验，当然这在某种程度上却牺牲了人的想象力。</description>
       <category>游戏测评</category>
     </item>
     <item>
