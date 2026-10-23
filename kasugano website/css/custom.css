@@ -1164,3 +1164,37 @@ img {
     gap: 16px;
   }
 }
+
+
+/* Contact page: mobile layout fix */
+@media (max-width: 767px) {
+  /* Stack the profile image and text vertically */
+  section[style*="padding-top: 60px"] .container > .row[style*="display: flex"] {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 24px !important;
+  }
+
+  /* Center the profile image */
+  section[style*="padding-top: 60px"] .container > .row[style*="display: flex"] > div:first-child {
+    flex: 0 0 auto !important;
+    width: 100% !important;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  /* Give the text the full available width */
+  section[style*="padding-top: 60px"] .container > .row[style*="display: flex"] > div:last-child {
+    flex: 1 1 auto !important;
+    width: 100% !important;
+    min-width: 0;
+  }
+
+  /* Improve readability on small screens */
+  section[style*="padding-top: 60px"] .container > .row[style*="display: flex"] > div:last-child p {
+    font-size: 16px !important;
+    line-height: 1.9 !important;
+    overflow-wrap: anywhere;
+  }
+}
+
