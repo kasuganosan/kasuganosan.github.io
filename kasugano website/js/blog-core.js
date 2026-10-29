@@ -427,7 +427,7 @@
       var a = s.article;
       html += '<div class="col-sm-4">' +
         '<div class="post fade-in">' +
-        (a.image ? '<div class="image"><a href="' + a.url + '"><img src="' + a.image + '" alt="" class="img-responsive"></a></div>' : '') +
+        (a.image ? '<div class="image"><a href="' + a.url + '"><img src="' + a.image + '" alt="" loading="lazy" decoding="async" class="img-responsive"></a></div>' : '') +
         '<h3><a href="' + a.url + '">' + escapeHtml(a.title) + '</a></h3>' +
         '<p class="post__intro">' + escapeHtml(a.excerpt || '') + '</p>' +
         '<p class="read-more"><a href="' + a.url + '" class="btn btn-ghost">続き読む</a></p>' +
