@@ -10,7 +10,7 @@
     <!-- Open Graph -->
     <meta property="og:title" content="観劇の控え室 — うしろみや">
     <meta property="og:description" content="右代宮氏のプロフィールとサイト縁起。上海交通大学工学専攻、JLPT N1。">
-    <meta property="og:image" content="../kasugano website/img/bokunitsuite.jpg">
+    <meta property="og:image" content="../kasugano website/img/bokunitsuite.webp">
     <meta property="og:url" content="https://rokkenshima.fun/contact.html">
     <meta property="og:type" content="profile">
     <meta name="twitter:card" content="summary_large_image">
@@ -28,13 +28,14 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="../kasugano website/css/custom.css">
     <link rel="stylesheet" href="../kasugano website/css/blog-enhance.css">
+    <link rel="stylesheet" href="css/contact.css?v=20261029-1">
     <!-- Favicon-->
     <link rel="shortcut icon" href="../kasugano website/favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
   </head>
-  <body>
+  <body class="contact-page">
     <div id="progress-bar"></div>
     <!-- Search Overlay -->
     <div id="search-overlay">
@@ -57,24 +58,18 @@
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-              <li><a href="../kasugano website/index.html">公式サイト</a></li>
+              <li><a href="index.html">公式サイト</a></li>
               <li><a href="text.html">魔女の蕃茄園</a></li>
-              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">茶話会 <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="game.html">鎮守の社(ゲーム)</a></li>
-                  <li><a href="ongaku.html">九羽鳥庵(音楽)</a></li>
-                </ul>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">茶話会 <b class="caret"></b></a>
+                <ul class="dropdown-menu"><li><a href="game.html">鎮守の社(ゲーム)</a></li><li><a href="ongaku.html">九羽鳥庵(音楽)</a></li></ul>
               </li>
-              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">屋敷本館 <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="hibun.html">右代宮の碑文</a></li>
-                  <li><a href="genga.html">魔女の肖像画</a></li>
-                </ul>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">屋敷本館 <b class="caret"></b></a>
+                <ul class="dropdown-menu"><li><a href="hibun.html">右代宮の碑文</a></li><li><a href="genga.html">魔女の肖像画</a></li></ul>
               </li>
-              <li><a href="../kasugano website/friends.html">カケラの世界</a></li>
-              <li class="active"><a href="../kasugano website/contact.html">観劇の控え室</a></li>
+              <li><a href="fragments.html">かけらの世界</a></li>
+              <li class="active"><a href="contact.html" aria-current="page">観劇の控え室</a></li>
             </ul>
-          </div>
+</div>
         </div>
       </div>
     </header>
@@ -82,7 +77,7 @@
     <!-- login modal removed -->
 
     <!-- Hero -->
-    <section class="background-gray-lightest">
+    <section class="background-gray-lightest contact-page-title">
       <div class="container">
         <div class="breadcrumbs">
           <ul class="breadcrumb">
@@ -94,16 +89,16 @@
     </section>
 
     <!-- Profile -->
-    <section style="padding-top: 60px; padding-bottom: 48px;">
-      <div class="container">
-        <div class="row" style="display: flex; align-items: flex-start; gap: 40px;">
-          <div style="flex: 0 0 280px;">
-            <img src="../kasugano website/img/bokunitsuite.jpg" alt="" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-md); border: 1px solid var(--line);">
+    <section class="contact-profile" style="padding-top: 60px; padding-bottom: 48px;">
+      <div class="container contact-panel">
+        <div class="row contact-profile-layout">
+          <div class="contact-profile-portrait">
+            <img src="../kasugano website/img/bokunitsuite.webp" alt="" style="width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-md); border: 1px solid var(--line);" decoding="async">
             <p style="text-align: center; margin-top: 10px; font-size: 12px; color: var(--muted);">皇紀2683年夏休み，足利樺崎八幡宮前</p>
           </div>
-          <div style="flex: 1; min-width: 0;">
+          <div class="contact-profile-copy" style="flex: 1; min-width: 0;">
             <p style="font-size: 20px; color: var(--ink); margin-bottom: 16px; font-weight: 500;">ご覧になるのはありがとうございます。</p>
-            <p style="color: var(--ink-soft); font-size: 16px; line-height: 2; margin-bottom: 14px;">二年生です。現在、上海交通大学に工学を専攻しています。中国のとある西南都会出身。青年期はポップスやゲーム音楽に熱中する傍ら、高校時代以来さらに様々なジャンルに触れ知見を広めてきた。日本語能力検定一級（JLPT N1）。</p>
+            <p style="color: var(--ink-soft); font-size: 16px; line-height: 2; margin-bottom: 14px;">四年生です。現在、上海交通大学に工学を専攻しています。中国のとある西南都会出身。青年期はポップスやゲーム音楽に熱中する傍ら、高校時代以来さらに様々なジャンルに触れ知見を広めてきた。日本語能力検定一級（JLPT N1）。</p>
             <p style="color: var(--ink-soft); font-size: 16px; line-height: 2; margin-bottom: 14px;">つまり、駄目人間（重度）、引き篭り（重度）、活字中毒（軽度）&hellip;&hellip;</p>
             <span style="display: inline-block; font-family: 'Roboto Condensed', sans-serif; font-size: 13px; letter-spacing: 0.10em; color: var(--accent-dark); text-transform: uppercase; padding: 5px 14px; border: 1px solid rgba(185, 147, 66, 0.30); border-radius: 20px; margin-bottom: 12px; margin-top: 8px;">個人趣味</span>
             <p style="color: var(--ink-soft); font-size: 16px; line-height: 2;">アニメ、ゲーム、科学、文学。沉迷玩 galgame 和ブルアカ的お宅，拔作党，东方厨，ロリこん、海猫癌晚期，喜欢古日语，对平安文化有浓厚的兴趣。平日热衷收集各种同人志，将其与 galgame 奉为第九艺术（笑）。</p>
@@ -114,7 +109,7 @@
 
     <!-- Origin -->
     <section style="padding-top: 0; padding-bottom: 52px;">
-      <div class="container">
+      <div class="container contact-panel">
         <div class="row">
           <div class="col-lg-10 col-lg-offset-1">
             <h4 style="font-family: 'Roboto Condensed', sans-serif; font-size: 17px; letter-spacing: 0.07em; color: var(--ink); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 2px solid var(--line);">
@@ -211,7 +206,7 @@
 
     <!-- Contact colophon -->
     <section style="padding-top: 72px; padding-bottom: 80px;">
-      <div class="container">
+      <div class="container contact-panel contact-colophon">
         <div class="row">
           <div class="col-md-6 col-md-offset-3">
             <div style="text-align: center;">

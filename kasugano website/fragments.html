@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>かけらの世界 · 日本旅行照片地图 — うしろみや</title>
+    <meta name="description" content="かけらの世界，右代宮氏的日本旅行照片地图。">
+    <meta property="og:title" content="かけらの世界 · 日本旅行照片地图">
+    <meta property="og:description" content="一张地图，收藏旅途中遇见的风景。">
+    <meta property="og:image" content="img/rokkenshima.webp">
+    <meta property="og:url" content="https://rokkenshima.fun/fragments.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://rokkenshima.fun/fragments.html">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/style.default.css?v=20261029-1" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/blog-enhance.css">
+    <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="vendor/maplibre/maplibre-gl.css">
+    <link rel="stylesheet" href="css/travel-map.css?v=20261029-7">
+    <link rel="shortcut icon" href="favicon.png">
+  </head>
+  <body class="atlas-page">
+    <div id="progress-bar"></div>
+    <div id="search-overlay">
+      <button id="search-close" aria-label="关闭搜索">&times;</button>
+      <div class="search-overlay-inner">
+        <input type="text" id="search-input" placeholder="搜索文章..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+    <header class="header">
+      <div role="navigation" class="navbar navbar-default" aria-label="主导航">
+        <div class="container">
+          <div class="navbar-header">
+            <a href="index.html" class="navbar-brand">うしろみや</a>
+            <div class="navbar-buttons">
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn" aria-label="展开导航" aria-expanded="false">Menu<i class="fa fa-align-justify"></i></button>
+            </div>
+            <button id="search-toggle" class="search-toggle" aria-label="搜索"><i class="fa fa-search"></i></button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fa fa-moon-o"></i></button>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">公式サイト</a></li>
+              <li><a href="text.html">魔女の蕃茄園</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">茶話会 <b class="caret"></b></a>
+                <ul class="dropdown-menu"><li><a href="game.html">鎮守の社(ゲーム)</a></li><li><a href="ongaku.html">九羽鳥庵(音楽)</a></li></ul>
+              </li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">屋敷本館 <b class="caret"></b></a>
+                <ul class="dropdown-menu"><li><a href="hibun.html">右代宮の碑文</a></li><li><a href="genga.html">魔女の肖像画</a></li></ul>
+              </li>
+              <li class="active"><a href="fragments.html" aria-current="page">かけらの世界</a></li>
+              <li><a href="contact.html">観劇の控え室</a></li>
+            </ul>
+</div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="atlas-intro" aria-labelledby="atlas-title">
+        <div class="container">
+          <div class="atlas-heading">
+            <div>
+              <p class="atlas-eyebrow">Fragments of a journey / 旅の記録</p>
+              <h1 id="atlas-title" lang="ja">かけらの世界</h1>
+            </div>
+            <div class="atlas-statistics" aria-label="旅行记录统计">
+              <div><strong id="atlas-place-count">0</strong><span>个地点</span></div>
+              <div><strong id="atlas-photo-count">0</strong><span>张照片</span></div>
+            </div>
+          </div>
+          <div class="atlas-lore" lang="ja">
+            <p>魔女たちの中でも「航海者」と呼ばれる上位の存在が認識している特殊な概念。カケラとはいわゆる平行世界のようなもののことらしく、可能性の数だけカケラは存在する。航海者たちはカケラを自由に移動することができる。</p>
+            <p>以下は絶対の魔女フレデリカ・ベルンカステルの複数のカケラの旅です。</p>
+          </div>
+        </div>
+      </section>
+      <section class="atlas-workspace" aria-label="旅行照片地图">
+        <div class="container">
+          <div class="atlas-shell">
+            <div class="atlas-toolbar">
+              <span class="atlas-toolbar-label">PHOTO ATLAS </span>
+              <div class="atlas-controls">
+                <button class="atlas-button" data-atlas-province="ezo" data-lat="43.50" data-lng="142.60" data-zoom="7" data-bounds="41.35,139.30,45.60,145.85" type="button">蝦夷</button>
+                <button class="atlas-button" data-atlas-province="musashi" data-lat="35.78" data-lng="139.74" data-zoom="10" type="button">武蔵</button>
+                <button class="atlas-button" data-atlas-province="shimotsuke" data-lat="36.35" data-lng="139.47" data-zoom="12" type="button">下野</button>
+                <button class="atlas-button" data-atlas-province="yamashiro" data-lat="34.99" data-lng="135.77" data-zoom="11" type="button">山城</button>
+                <button class="atlas-button" data-atlas-province="yamato" data-lat="34.65" data-lng="135.80" data-zoom="11" type="button">大和</button>
+                <button class="atlas-button" data-atlas-province="settsu" data-lat="34.70" data-lng="135.30" data-zoom="10" type="button">摂津</button>
+                <button class="atlas-button" data-atlas-province="sanuki" data-lat="34.25" data-lng="133.98" data-zoom="9" type="button">讃岐</button>
+                <button class="atlas-button" data-atlas-province="iyo" data-lat="33.98" data-lng="132.84" data-zoom="10" type="button">伊予</button>
+                <button class="atlas-button" id="atlas-japan" type="button" title="日本全图" aria-label="日本全图"><i class="fa fa-globe" aria-hidden="true"></i></button>
+                <button class="atlas-button" id="atlas-fit" type="button" title="全部足迹" aria-label="全部足迹" disabled><i class="fa fa-picture-o" aria-hidden="true"></i></button>
+              </div>
+            </div>
+            <form class="atlas-place-search" id="atlas-place-search" role="search" aria-label="搜索日本城市或都道府县">
+              <label for="atlas-place-query" class="sr-only">城市或都道府县</label>
+              <input id="atlas-place-query" type="search" placeholder="搜索城市：足利 / 西宮 / 釧路" autocomplete="off" aria-controls="atlas-place-results" aria-expanded="false">
+              <button class="atlas-button" type="submit">定位</button>
+              <div class="atlas-place-results" id="atlas-place-results" aria-label="地点搜索结果" hidden></div>
+            </form>
+            <div class="atlas-body">
+              <div class="atlas-map-wrap">
+                <div id="travel-map" role="region" aria-label="可拖动和缩放的日本旅行地图"></div>
+                <div class="atlas-map-caption">拖动探索 · 滚轮缩放</div>
+              </div>
+            </div>
+            <p class="atlas-status" id="atlas-status" role="status" hidden></p>
+            <noscript><p class="atlas-status">请开启 JavaScript 以浏览互动地图。</p></noscript>
+          </div>
+          <div class="atlas-footnote">
+            <span>旅は我が身の思い立ち</span>
+            <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener noreferrer">Natural Earth</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <dialog class="atlas-viewer" id="atlas-viewer" aria-labelledby="atlas-viewer-title">
+      <div class="atlas-viewer-header">
+        <h2 id="atlas-viewer-title"></h2>
+        <button class="atlas-viewer-close" id="atlas-viewer-close" type="button" aria-label="关闭照片">&times;</button>
+      </div>
+      <figure>
+        <div class="atlas-viewer-image-wrap">
+          <img id="atlas-photo" alt="">
+          <p id="atlas-photo-error" role="status" hidden>这张照片暂时无法显示。</p>
+        </div>
+        <figcaption id="atlas-photo-caption"></figcaption>
+      </figure>
+      <div class="atlas-viewer-footer">
+        <span id="atlas-photo-meta"></span>
+        <div class="atlas-controls">
+          <button class="atlas-button" id="atlas-prev" type="button" aria-label="上一张照片">← 上一张</button>
+          <button class="atlas-button" id="atlas-next" type="button" aria-label="下一张照片">下一张 →</button>
+        </div>
+      </div>
+    </dialog>
+    <footer class="footer">
+      <div class="footer__copyright"><div class="container"><p>Copyright &copy; 右代宮氏 2024-2026</p></div></div>
+    </footer>
+    <button id="back-to-top" aria-label="返回顶部"><i class="fa fa-chevron-up"></i></button>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/blog-core.js"></script>
+    <script src="vendor/leaflet/leaflet.js"></script>
+    <script src="vendor/maplibre/maplibre-gl.js"></script>
+    <script src="vendor/maplibre/leaflet-maplibre-gl.js"></script>
+    <script src="vendor/openfreemap/travel-style.js"></script>
+    <script src="vendor/natural-earth/japan.js?v=20261028-3"></script>
+    <script src="vendor/natural-earth/japan-detail.js?v=20261028-3"></script>
+    <script src="vendor/geonames/japan-places.js"></script>
+    <script src="js/travel-basemap.js?v=20261028-4"></script>
+    <script src="js/travel-streets.js?v=20261028-5"></script>
+    <script src="js/travel-place-search.js?v=20261028-5"></script>
+    <script src="js/travel-photos.js"></script>
+    <script src="js/travel-cloudinary-photos.js?v=f71840fab20a"></script>
+    <script src="js/travel-map.js?v=20261029-3"></script>
+  </body>
+</html>
