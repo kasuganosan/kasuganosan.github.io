@@ -1,0 +1,65 @@
+/* This article reuses the atlas artwork; no duplicate image assets. */
+body.douji-page {
+  --douji-artwork: url('../img/kakera_world_light.webp');
+  --douji-paper: rgba(255, 250, 240, .90);
+  --douji-title-paper: rgba(255, 250, 240, .64);
+  background: #eee4d4;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+.douji-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--douji-artwork) center / cover no-repeat;
+}
+
+[data-theme="dark"] body.douji-page {
+  --douji-artwork: url('../img/kakera_world_dark.webp');
+  --douji-paper: rgba(26, 29, 28, .90);
+  --douji-title-paper: rgba(26, 29, 28, .64);
+  background: #1c1e1c;
+}
+
+body.douji-page > .blog-post,
+body.douji-page > .background-gray-lightest {
+  background: transparent;
+}
+
+body.douji-page > .background-gray-lightest:first-of-type {
+  background: var(--douji-title-paper);
+}
+
+.douji-page > .background-gray-lightest .lead {
+  color: var(--ink-soft);
+}
+
+.douji-page .blog-post .post-content,
+.douji-page .toc-container {
+  background: var(--douji-paper);
+}
+
+body.douji-page > .section--padding-bottom-small > .container {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--douji-paper);
+  box-shadow: var(--shadow-sm);
+}
+
+@media (max-width: 767px) {
+  body.douji-page > .section--padding-bottom-small > .container {
+    width: calc(100% - 30px);
+    padding: 24px 18px;
+  }
+}
+
+@media print {
+  body.douji-page { background: white; }
+  .douji-page::before { display: none; }
+  body.douji-page > .background-gray-lightest:first-of-type,
+  .douji-page .blog-post .post-content { background: white; }
+}

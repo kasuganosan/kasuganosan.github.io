@@ -6,10 +6,6 @@
     <title>我的diy NAS搭建详细记录 — うしろみや</title>
     <meta name="description" content="让一台2014年的联想老电脑重新成为家用 NAS：记录硬件维修与升级、飞牛 OS 安装、公网 IPv6 与 DDNS、HTTPS 远程访问，以及 Docker 和 iCloud 照片备份的折腾过程。">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The deployed article is reachable both at /nas.html and under the
-         repository's asset directory. Keep all relative resources on the
-         latter so mobile browsers do not fall back to unstyled HTML. -->
-    <base href="/kasugano%20website/">
     <meta name="robots" content="all,follow">
     <!-- Open Graph -->
     <meta property="og:title" content="我的diy NAS搭建详细记录">
@@ -21,20 +17,20 @@
     <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://rokkenshima.fun/nas.html">
     <!-- Bootstrap CSS-->
-    <link rel="stylesheet" href="/kasugano%20website/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- Font Awesome & Pixeden Icon Stroke icon font-->
-    <link rel="stylesheet" href="/kasugano%20website/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/kasugano%20website/css/pe-icon-7-stroke.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
     <!-- Google fonts - Roboto Condensed & Roboto-->
     <!-- lightbox-->
-    <link rel="stylesheet" href="/kasugano%20website/css/lightbox.min.css">
+    <link rel="stylesheet" href="css/lightbox.min.css">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="/kasugano%20website/css/style.default.css" id="theme-stylesheet">
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
-    <link rel="stylesheet" href="/kasugano%20website/css/custom.css">
-    <link rel="stylesheet" href="/kasugano%20website/css/blog-enhance.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/blog-enhance.css">
     <!-- Favicon-->
-    <link rel="shortcut icon" href="/kasugano%20website/favicon.png">
+    <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
@@ -75,7 +71,7 @@
     <meta name="twitter:title" content="我的diy NAS搭建详细记录">
     <meta name="twitter:description" content="让一台2014年的联想老电脑重新成为家用 NAS：记录硬件维修与升级、飞牛 OS 安装、公网 IPv6 与 DDNS、HTTPS 远程访问，以及 Docker 和 iCloud 照片备份的折腾过程。">
     <meta name="twitter:image" content="https://rokkenshima.fun/img/nas/nas-01.webp">
-    <link rel="stylesheet" href="/kasugano%20website/css/nas.css">
+    <link rel="stylesheet" href="css/nas.css?v=20261030-photo-1">
 </head>
   <body class="nas-page">
     <div id="progress-bar"></div>
@@ -132,7 +128,7 @@
         <details class="toc-container"><summary>目录</summary><nav class="toc-nav" aria-label="文章目录"></nav></details>
         <article class="post-content margin-bottom--big nas-article" data-article-id="nas" data-category="学术探讨" data-tags="NAS,DIY,技术,飞牛OS,IPv6,DDNS,Docker,iCloud" data-date="2026-09-03">
           <div class="nas-meta"><time datetime="2026-09-03">2026.09.03 文</time><span class="reading-time"></span></div>
-<figure><a href="img/nas/nas-01.webp" data-lightbox="nas-gallery" data-title="2016年拍摄的联想台式机与书桌" aria-label="放大查看：2016年拍摄的联想台式机与书桌"><img src="img/nas/nas-01.webp" alt="2016年拍摄的联想台式机与书桌" width="1448" height="1086" loading="eager" fetchpriority="high" decoding="async"></a><figcaption>使用ChatGPT Sol 5.6高清修复 原图拍摄于2016.01.16</figcaption></figure>
+<figure class="nas-intro-photo"><a href="img/nas/nas-01.webp" data-lightbox="nas-gallery" data-title="2016年拍摄的联想台式机与书桌" aria-label="放大查看：2016年拍摄的联想台式机与书桌"><img src="img/nas/nas-01.webp" alt="2016年拍摄的联想台式机与书桌" width="1448" height="1086" loading="eager" fetchpriority="high" decoding="async"></a><figcaption>使用ChatGPT Sol 5.6高清修复 原图拍摄于2016.01.16</figcaption></figure>
 <p>2014年我小学四年级时，父母在老家为我购置了一台联想台式机，一直到我高中之前，这台电脑都是我IT技术的启蒙老师，从自学Dreamweaver搭建个人博客、编一些简单的java程序，再到下载各种包括Minecraft在内的无数单机游戏进行游玩，它伴我度过了无数假日时光，但初三以后随着学习压力的增大，回老家的次数逐渐减少，这台电脑便一直闲置。光阴荏苒十二年，一直到最近我再次想起它时，已然覆盖了一层厚厚的油污和灰尘，同时也完全打不开机了。我不想让这个“启蒙老师”沦落到废品站的结局，但我也深知十几年前的硬件已经无法支持今天的工作要求，正好我一直对最近风靡的NAS（Network Attached Storage）技术感兴趣，对硬件要求也不高，网上成品NAS如绿联、群晖都溢价严重，我更希望把预算花在“刀刃”即硬盘上，基于此我便萌生了折腾一台diy NAS的想法。</p>
 <h2 id="section-0">一、前期硬件维修及升级</h2>
 <p>当我用酒精湿巾小心擦拭了机器外身，我遇到了第一个问题：十几年的岁月和一楼潮气的侵蚀已经让这台老古董台式机无法开机了。我发现按下电源键后，机箱内部的风扇依然能够转动，但屏幕始终没有任何显示，连机箱上的电源指示灯也没有正常亮起。我判断机器并非完全没有供电，更像是通电之后没能顺利完成主板的开机自检（POST）。 对于一台长期闲置、又一直存放在较为潮湿环境中的老电脑来说，内存金手指氧化、接口接触不良以及 CMOS 电池耗尽，是Gemini推荐的排查方向。</p>

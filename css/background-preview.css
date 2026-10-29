@@ -1,0 +1,46 @@
+/* TEMPORARY all-page background trial.
+   Disable by removing ONLY the background-preview @import from custom.css.
+   The existing contact and atlas styles are intentionally independent. */
+@media screen {
+  html:root body:not(.atlas-page):not(.contact-page) {
+    --trial-art: url('../img/kakera_world_light.webp');
+    --trial-paper: rgba(255,250,240,.86);
+    --trial-wash: rgba(255,250,240,.68);
+    background: #eee4d4;
+    isolation: isolate;
+    min-height: 100vh;
+  }
+  html:root[data-theme="dark"] body:not(.atlas-page):not(.contact-page) {
+    --trial-art: url('../img/kakera_world_dark.webp');
+    --trial-paper: rgba(26,29,28,.88);
+    --trial-wash: rgba(26,29,28,.72);
+    background: #1c1e1c;
+  }
+  html:root body:not(.atlas-page):not(.contact-page)::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: var(--trial-art) center / cover no-repeat;
+  }
+  html:root body:not(.atlas-page):not(.contact-page) .blog-post {
+    background: transparent;
+  }
+  html:root body:not(.atlas-page):not(.contact-page) .background-gray-lightest {
+    background-color: var(--trial-wash);
+    background-image: linear-gradient(180deg, var(--trial-wash), transparent);
+  }
+  html:root body:not(.atlas-page):not(.contact-page) .post,
+  html:root body:not(.atlas-page):not(.contact-page) .post-content,
+  html:root body:not(.atlas-page):not(.contact-page) .card,
+  html:root body:not(.atlas-page):not(.contact-page) .category-card,
+  html:root body:not(.atlas-page):not(.contact-page) .friend-card,
+  html:root body:not(.atlas-page):not(.contact-page) .related-articles {
+    background: var(--trial-paper);
+  }
+  /* Embedded article galleries already sit on the translucent reading panel. */
+  html:root body:not(.atlas-page):not(.contact-page) .post-content .post {
+    background: transparent;
+  }
+}
