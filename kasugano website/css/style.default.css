@@ -1100,6 +1100,9 @@ SERVICES
   margin-bottom: 2rem;
   font-size: 18px;
   line-height: 1.67;
+}
+.blog-post .post-content,
+.atlas-lore {
   font-family: "noto serif sc",pingfang sc,hiragino sans gb,microsoft yahei,wenquanyi micro hei,segoe ui emoji,segoe ui symbol,Helvetica,Arial,-apple-system,system-ui,sans-serif
 }
 .blog-post .post-content p,

@@ -170,21 +170,6 @@
   background: rgba(201, 166, 78, 0.12);
 }
 
-/* 移动端适配 */
-@media (max-width: 767px) {
-  .theme-toggle {
-    right: 56px;
-    width: 30px;
-    height: 30px;
-    font-size: 13px;
-  }
-  .search-toggle {
-    right: 92px;
-    width: 30px;
-    height: 30px;
-    font-size: 12px;
-  }
-}
 .search-toggle {
   position: absolute;
   right: -40px;
@@ -208,6 +193,31 @@
   border-color: var(--accent);
   color: var(--accent);
   background: rgba(185, 147, 66, 0.08);
+}
+
+/* Keep desktop controls inside the header without changing its menu behavior. */
+@media (min-width: 768px) {
+  .navbar .theme-toggle { right: 15px; }
+  .navbar .search-toggle { right: 55px; }
+  .navbar .navbar-right { margin-right: 88px; max-width: calc(100% - 88px); }
+}
+
+/* 移动端规则放在基础按钮样式之后，避免被桌面定位覆盖。 */
+@media (max-width: 767px) {
+  .theme-toggle {
+    right: 128px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 13px;
+  }
+  .search-toggle {
+    right: 166px;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 12px;
+  }
 }
 
 /* ===== 阅读进度条 (Reading Progress Bar) ===== */
