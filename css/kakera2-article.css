@@ -1,0 +1,56 @@
+/* Reuse the second day/night artwork with contact.css's transparency values. */
+body.kakera2-article-page {
+  --kakera2-background: url('../img/kakera_world_light2.webp');
+  --kakera2-paper: rgba(255,250,240,.84);
+  background: #eee4d4;
+  min-height: 100vh;
+  isolation: isolate;
+}
+.kakera2-article-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--kakera2-background) center / cover no-repeat;
+}
+[data-theme="dark"] body.kakera2-article-page {
+  --kakera2-background: url('../img/kakera_world_dark2.webp');
+  --kakera2-paper: rgba(26,29,28,.86);
+  background: #1c1e1c;
+}
+body.kakera2-article-page > .blog-post,
+body.kakera2-article-page > .background-gray-lightest { background: transparent; }
+body.kakera2-article-page > .background-gray-lightest:first-of-type {
+  background: linear-gradient(180deg,rgba(255,250,240,.78),rgba(255,250,240,.62));
+}
+[data-theme="dark"] body.kakera2-article-page > .background-gray-lightest:first-of-type {
+  background: linear-gradient(180deg,rgba(26,29,28,.82),rgba(26,29,28,.66));
+}
+.kakera2-article-page > .background-gray-lightest:first-of-type .lead { color: #5e513d; }
+[data-theme="dark"] .kakera2-article-page > .background-gray-lightest:first-of-type .lead { color: #d4cabb; }
+.kakera2-article-page .blog-post .post-content { background: var(--kakera2-paper); }
+.kakera2-article-page .share-buttons {
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--kakera2-paper);
+}
+.kakera2-article-page > .section--padding-bottom-small > .container {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--kakera2-paper);
+  box-shadow: var(--shadow-sm);
+}
+.kakera2-article-page > .section--padding-bottom-small .post { background: var(--kakera2-paper); }
+@media (max-width: 767px) {
+  .kakera2-article-page > .section--padding-bottom-small > .container { width: calc(100% - 30px); padding: 24px 18px; }
+}
+@media print {
+  body.kakera2-article-page { background: white; }
+  .kakera2-article-page::before { display: none; }
+  .kakera2-article-page > .background-gray-lightest:first-of-type,
+  .kakera2-article-page .blog-post .post-content,
+  .kakera2-article-page > .section--padding-bottom-small > .container { background: white; box-shadow: none; }
+}

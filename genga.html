@@ -28,13 +28,7 @@
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="css/blog-enhance.css">
-    <style>
-      .genga-img {
-        width: 400px;
-        height: 570px;
-        object-fit: cover;
-      }
-    </style>
+    <link rel="stylesheet" href="css/portrait-room.css?v=20261030-1">
     <!-- Favicon-->
     <link rel="shortcut icon" href="favicon.png">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -46,9 +40,9 @@
     <div id="progress-bar"></div>
     <!-- Search Overlay -->
     <div id="search-overlay">
-      <button id="search-close" aria-label="关闭搜索">&times;</button>
+      <button id="search-close" aria-label="検索を閉じる">&times;</button>
       <div class="search-overlay-inner">
-        <input type="text" id="search-input" placeholder="搜索文章..." autocomplete="off">
+        <input type="text" id="search-input" placeholder="記事を検索…" autocomplete="off">
         <div id="search-results"></div>
       </div>
     </div>
@@ -59,10 +53,10 @@
           <div class="navbar-header"><a href="index.html" class="navbar-brand">うしろみや
           </a>
             <div class="navbar-buttons">
-              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">メニュー<i class="fa fa-align-justify"></i></button>
             </div>
-            <button id="search-toggle" class="search-toggle" aria-label="搜索"><i class="fa fa-search"></i></button>
-            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fa fa-moon-o"></i></button>
+            <button id="search-toggle" class="search-toggle" aria-label="検索"><i class="fa fa-search"></i></button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="テーマを切り替え"><i class="fa fa-moon-o"></i></button>
           </div>
           <div id="navigation" class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
@@ -97,35 +91,65 @@
     </div>
   </div>
 </section>
-    <section class="blog-post">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="post-content margin-bottom--big">
-<p class="text-center">私の愛する、無限の、黄金の魔女であるベアトリーチェに捧げます。</p>
-<p class="text-center"><br>
-  <img src="img/genga1.jpg" class="genga-img" alt="" decoding="async"/></p>
-<p class="text-center">無限の黄金の魔女 「ベアトリーチェ」画像</p>
-<p class="text-center"><img src="img/genga2.jpg" class="genga-img" alt="" decoding="async"/></p>
-<p class="text-center">顔芸の魔女「エヴァ・ベアトリーチェ」画像</p>
-<p class="text-center"><img src="img/genga3.jpg" class="genga-img" alt="" loading="lazy" decoding="async"/></p>
-<p class="text-center">真実の魔女「古戸ヱリカ」画像</p>
-<p class="text-center"><img src="img/genga4.jpg" class="genga-img" alt="" loading="lazy" decoding="async"/></p>
-<p class="text-center">無限の魔術師「右代宮戦人」画像</p>
-<p class="text-center"><img src="img/genga5.jpg" class="genga-img" alt="" loading="lazy" decoding="async"/></p>
-<p class="text-center">「右代宮理御」と「ウィラード・H・ライト」画像</p>
-</div>
-            <!-- /.post-content-->
-          </div>
+    <section class="portrait-room" id="portrait-room" aria-labelledby="portrait-room-title">
+      <div class="portrait-room-inner">
+        <div class="portrait-masthead">
+          <div><h2 id="portrait-room-title">肖像の間</h2></div>
+          <button class="portrait-all" type="button" aria-pressed="false" aria-controls="portrait-gallery" data-portrait-controls hidden>すべての肖像</button>
         </div>
-</div>
+        <p class="portrait-dedication">私の愛する、無限の、黄金の魔女であるベアトリーチェに捧げます。</p>
+        <p class="portrait-status" role="status" aria-live="polite" aria-atomic="true" data-portrait-controls hidden>I / V</p>
+        <div class="portrait-gallery" id="portrait-gallery">
+          <figure class="portrait-panel" id="portrait-panel-0">
+            <a class="portrait-art" href="img/genga1.jpg" data-lightbox="portrait-room" data-title="無限の黄金の魔女 「ベアトリーチェ」画像" aria-label="原画を拡大：ベアトリーチェ">
+              <img src="img/genga1.jpg" width="1920" height="2715" alt="無限の黄金の魔女 「ベアトリーチェ」画像" loading="eager" decoding="async">
+            </a>
+            <figcaption><h3 id="portrait-title-0">ベアトリーチェ</h3><p>無限の黄金の魔女 「ベアトリーチェ」画像</p><span class="portrait-hint">原画をクリックして拡大</span></figcaption>
+          </figure>
+          <figure class="portrait-panel" id="portrait-panel-1">
+            <a class="portrait-art" href="img/genga2.jpg" data-lightbox="portrait-room" data-title="顔芸の魔女「エヴァ・ベアトリーチェ」画像" aria-label="原画を拡大：エヴァ・ベアトリーチェ">
+              <img src="img/genga2.jpg" width="400" height="565" alt="顔芸の魔女「エヴァ・ベアトリーチェ」画像" loading="lazy" decoding="async">
+            </a>
+            <figcaption><h3 id="portrait-title-1">エヴァ・ベアトリーチェ</h3><p>顔芸の魔女「エヴァ・ベアトリーチェ」画像</p><span class="portrait-hint">原画をクリックして拡大</span></figcaption>
+          </figure>
+          <figure class="portrait-panel" id="portrait-panel-2">
+            <a class="portrait-art" href="img/genga3.jpg" data-lightbox="portrait-room" data-title="真実の魔女「古戸ヱリカ」画像" aria-label="原画を拡大：古戸ヱリカ">
+              <img src="img/genga3.jpg" width="400" height="566" alt="真実の魔女「古戸ヱリカ」画像" loading="lazy" decoding="async">
+            </a>
+            <figcaption><h3 id="portrait-title-2">古戸ヱリカ</h3><p>真実の魔女「古戸ヱリカ」画像</p><span class="portrait-hint">原画をクリックして拡大</span></figcaption>
+          </figure>
+          <figure class="portrait-panel" id="portrait-panel-3">
+            <a class="portrait-art" href="img/genga4.jpg" data-lightbox="portrait-room" data-title="無限の魔術師「右代宮戦人」画像" aria-label="原画を拡大：右代宮戦人">
+              <img src="img/genga4.jpg" width="306" height="435" alt="無限の魔術師「右代宮戦人」画像" loading="lazy" decoding="async">
+            </a>
+            <figcaption><h3 id="portrait-title-3">右代宮戦人</h3><p>無限の魔術師「右代宮戦人」画像</p><span class="portrait-hint">原画をクリックして拡大</span></figcaption>
+          </figure>
+          <figure class="portrait-panel" id="portrait-panel-4">
+            <a class="portrait-art" href="img/genga5.jpg" data-lightbox="portrait-room" data-title="「右代宮理御」と「ウィラード・H・ライト」画像" aria-label="原画を拡大：理御 ＆ ウィラード">
+              <img src="img/genga5.jpg" width="400" height="565" alt="「右代宮理御」と「ウィラード・H・ライト」画像" loading="lazy" decoding="async">
+            </a>
+            <figcaption><h3 id="portrait-title-4">理御 ＆ ウィラード</h3><p>「右代宮理御」と「ウィラード・H・ライト」画像</p><span class="portrait-hint">原画をクリックして拡大</span></figcaption>
+          </figure>
+        </div>
+        <div class="portrait-navigation" data-portrait-controls hidden>
+          <button class="portrait-step portrait-previous" type="button" aria-label="前の肖像">‹</button>
+          <div class="portrait-tabs" aria-label="肖像を選ぶ">
+            <button class="portrait-tab" id="portrait-tab-0" type="button" aria-controls="portrait-panel-0">ベアトリーチェ</button>
+            <button class="portrait-tab" id="portrait-tab-1" type="button" aria-controls="portrait-panel-1">エヴァ・ベアトリーチェ</button>
+            <button class="portrait-tab" id="portrait-tab-2" type="button" aria-controls="portrait-panel-2">古戸ヱリカ</button>
+            <button class="portrait-tab" id="portrait-tab-3" type="button" aria-controls="portrait-panel-3">右代宮戦人</button>
+            <button class="portrait-tab" id="portrait-tab-4" type="button" aria-controls="portrait-panel-4">理御 ＆ ウィラード</button>
+          </div>
+          <button class="portrait-step portrait-next" type="button" aria-label="次の肖像">›</button>
+        </div>
+      </div>
     </section>
 <footer class="footer">
   <div class="footer__copyright">
         <div class="container">
           <div class="row">
             <div class="col-md-6">
-              <p>Copyright &copy; 右代宮氏 2024-2026</p>
+              <p>&copy; 右代宮氏 2024-2026</p>
             </div>
             <div class="col-md-6">
               <p class="credit"></p>
@@ -139,10 +163,11 @@
     <script src="js/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
     <script src="js/blog-core.js"></script>
-    <button id="back-to-top" aria-label="返回顶部"><i class="fa fa-chevron-up"></i></button>
+    <button id="back-to-top" aria-label="ページの先頭へ"><i class="fa fa-chevron-up"></i></button>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.cookie.js"> </script>
     <script src="js/lightbox.min.js"></script>
+    <script src="js/portrait-room.js?v=20261030-1"></script>
     <script src="js/front.js"></script><!-- substitute:livereload -->
       </body>
 </html>

@@ -1,0 +1,63 @@
+/* A private portrait room; all rules are local to this gallery. */
+.portrait-room { padding: 38px 0 64px; color: var(--ink); overflow-anchor: none; }
+.portrait-room-inner { width: calc(100% - 48px); max-width: 1040px; margin: 0 auto; }
+.portrait-room button, .portrait-room h2, .portrait-room h3, .portrait-room figcaption, .portrait-dedication { font-family: "Noto Serif JP", "Noto Serif SC", "Yu Mincho", "SimSun", serif; }
+.portrait-masthead { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.portrait-room h2 { margin: 0; font-size: 30px; font-weight: 500; line-height: 1.4; letter-spacing: .12em; }
+.portrait-all { min-height: 44px; padding: 8px 14px; border: 1px solid var(--line); border-radius: 3px; background: transparent; color: var(--ink-soft); font-size: 13px; cursor: pointer; }
+.portrait-all:hover, .portrait-all[aria-pressed="true"] { color: var(--accent-dark); border-color: var(--accent); background: var(--surface); }
+.portrait-dedication { margin: 20px 0 18px; color: var(--ink-soft); font-size: 14px; line-height: 1.9; text-align: center; }
+.portrait-status { margin: 0 0 16px; color: var(--accent-dark); font-size: 11px; letter-spacing: .16em; text-align: center; font-variant-numeric: tabular-nums; }
+.portrait-gallery { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 38px 28px; }
+.portrait-room figure { min-width: 0; margin: 0; padding: 0; }
+.portrait-room .portrait-art, .portrait-room .portrait-art:hover, .portrait-room .portrait-art:focus { display: flex; align-items: center; justify-content: center; height: 340px; max-width: 100%; padding: 0; border: 0; background: none; text-decoration: none; }
+.portrait-room .portrait-art img { display: block; width: auto; height: auto; max-width: 100%; max-height: 100%; margin: 0; border: 0; border-radius: 0; object-fit: contain; box-shadow: 0 12px 24px rgba(28,22,15,.14); }
+.portrait-room figcaption { padding: 19px 12px 0; color: var(--ink-soft); text-align: center; }
+.portrait-room h3 { margin: 0 0 7px; color: var(--ink); font-size: 20px; font-weight: 500; line-height: 1.7; letter-spacing: .035em; }
+.portrait-room figcaption p { margin: 0; color: var(--ink-soft); font-size: 13px; line-height: 1.8; overflow-wrap: anywhere; }
+.portrait-hint { display: none; }
+.portrait-room.is-enhanced:not(.is-all) .portrait-gallery { grid-template-columns: minmax(0,1fr); gap: 0; max-width: 680px; margin: 0 auto; }
+.portrait-room.is-enhanced:not(.is-all) figure { grid-area: 1 / 1; }
+.portrait-room.is-enhanced:not(.is-all) .portrait-art { height: clamp(240px,calc(100svh - 440px),480px); }
+.portrait-room.is-enhanced:not(.is-all) .portrait-art img { max-width: min(100%,400px); }
+.portrait-room.is-enhanced:not(.is-all) figcaption { min-height: 101px; }
+.portrait-room.is-enhanced:not(.is-all) .portrait-hint { display: block; margin-top: 8px; font-family: "Roboto", "Microsoft YaHei", sans-serif; color: var(--muted); font-size: 10px; letter-spacing: .12em; }
+.portrait-navigation { display: flex; align-items: center; gap: 14px; margin-top: 16px; padding: 14px 0 0; border-top: 1px solid var(--line); }
+.portrait-tabs { flex: 1; display: grid; grid-template-columns: repeat(5,minmax(0,1fr)); gap: 8px; }
+.portrait-tab { position: relative; min-width: 0; min-height: 52px; padding: 14px 3px 8px; border: 0; background: transparent; color: var(--ink-soft); font-size: 14px; line-height: 1.6; cursor: pointer; overflow-wrap: anywhere; }
+.portrait-tab::before { position: absolute; content: ''; top: 0; left: 20%; right: 20%; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform .2s ease; }
+.portrait-tab:hover, .portrait-tab[aria-selected="true"] { color: var(--accent-dark); }
+.portrait-tab[aria-selected="true"]::before { transform: scaleX(1); }
+.portrait-step { flex: 0 0 44px; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--accent-dark); font-size: 22px; line-height: 1; cursor: pointer; }
+.portrait-step:hover { border-color: var(--accent); background: var(--surface); }
+.portrait-room.is-all .portrait-navigation { display: none; }
+.portrait-room [hidden] { display: none !important; }
+.portrait-room :focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 4px; }
+@media (max-width: 767px) {
+  .portrait-room { padding: 26px 0 44px; }
+  .portrait-room-inner { width: calc(100% - 32px); }
+  .portrait-room h2 { font-size: 25px; }
+  .portrait-dedication { margin: 18px 0; font-size: 13px; }
+  .portrait-gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 30px 16px; }
+  .portrait-room .portrait-art { height: 260px; }
+  .portrait-room.is-enhanced:not(.is-all) .portrait-art { height: clamp(300px,50vh,420px); }
+  .portrait-room h3 { font-size: 18px; }
+  .portrait-navigation { flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  .portrait-tabs { order: -1; flex-basis: 100%; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 6px 14px; }
+  .portrait-tab { min-height: 44px; font-size: 14px; padding: 10px 4px 6px; }
+  .portrait-tab:last-child { grid-column: 1 / -1; }
+  .portrait-room.is-all .portrait-art { height: 230px; }
+  .portrait-room.is-all h3 { font-size: 15px; }
+  .portrait-room.is-all figcaption { padding: 15px 0 0; }
+}
+@media (max-width: 380px) {
+  .portrait-gallery { grid-template-columns: minmax(0,1fr); }
+  .portrait-room.is-all .portrait-art { height: 340px; }
+}
+@media (prefers-reduced-motion: reduce) { .portrait-tab::before { transition: none; } }
+@media print {
+  .portrait-room .portrait-gallery { display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr)) !important; gap: 30px !important; }
+  .portrait-room figure, .portrait-room figure[hidden] { display: block !important; grid-area: auto !important; break-inside: avoid; opacity: 1 !important; }
+  .portrait-room .portrait-navigation, .portrait-room .portrait-all, .portrait-room .portrait-status, .portrait-room .portrait-hint { display: none !important; }
+  .portrait-room .portrait-art { height: 330px !important; }
+}

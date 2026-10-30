@@ -1,0 +1,56 @@
+/* A quiet three-view reader, scoped to the epitaph page. */
+.epitaph-reader { --epitaph-text: #34404b; padding: 28px 0 64px; color: var(--ink); scroll-margin-top: 16px; overflow-anchor: none; }
+[data-theme="dark"] .epitaph-reader { --epitaph-text: #c5bfb0; }
+.epitaph-container { width: calc(100% - 64px); max-width: 1080px; margin: 0 auto; }
+.epitaph-controls { position: sticky; top: 0; z-index: 40; display: flex; align-items: center; justify-content: center; gap: 32px; padding: 6px 0 12px; margin-bottom: 32px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.epitaph-tabs { display: flex; align-items: center; gap: 18px; }
+.epitaph-tab { min-height: 44px; padding: 10px 16px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--ink-soft); font-family: "Noto Serif SC", "Noto Serif JP", "Yu Mincho", "SimSun", serif; font-size: 16px; line-height: 1.5; cursor: pointer; }
+.epitaph-tab:hover, .epitaph-tab[aria-selected="true"] { color: var(--accent-dark); border-bottom-color: var(--accent-dark); }
+.epitaph-continuous { padding: 8px 12px; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--ink-soft); font-family: inherit; font-size: 12px; line-height: 1.5; cursor: pointer; }
+.epitaph-continuous[aria-pressed="true"] { border-color: var(--accent-dark); color: var(--accent-dark); background: var(--surface-soft); }
+.epitaph-panel { min-width: 0; padding: 0; margin: 0; }
+.epitaph-panel-title { margin: 0 0 26px; color: var(--ink); font-family: "Noto Serif SC", "Noto Serif JP", "Yu Mincho", "SimSun", serif; font-size: 24px; font-weight: 500; text-align: center; }
+.epitaph-reader.is-enhanced:not(.is-continuous) .epitaph-panel-title { display: none; }
+.epitaph-languages { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 56px; align-items: start; }
+.epitaph-language { min-width: 0; }
+.epitaph-language h3 { margin: 0 0 26px; color: var(--accent-dark); font-family: "Noto Serif SC", "Noto Serif JP", "Yu Mincho", "SimSun", serif; font-size: 15px; font-weight: 500; line-height: 1.8; letter-spacing: .04em; text-align: center; }
+.epitaph-lines { color: var(--epitaph-text); font-family: "Noto Serif SC", "Noto Serif JP", "Yu Mincho", "SimSun", serif; text-align: center; }
+.epitaph-lines .epitaph-line { margin: 0; color: inherit; font-size: 18px; line-height: 2.1; overflow-wrap: anywhere; }
+.epitaph-notes-text { max-width: 740px; margin: 0 auto; color: var(--epitaph-text); font-family: "Noto Serif SC", "Noto Serif JP", "Yu Mincho", "SimSun", serif; }
+.epitaph-notes-text p { margin: 0 0 1.3em; color: inherit; font-size: 18px; line-height: 2; text-indent: 2em; overflow-wrap: anywhere; }
+.epitaph-notes-text p:last-child { margin-bottom: 0; }
+.epitaph-portrait figure { margin: 0; text-align: center; }
+.epitaph-reader .epitaph-portrait-link, .epitaph-reader .epitaph-portrait-link:hover, .epitaph-reader .epitaph-portrait-link:focus { display: inline-block; max-width: 100%; padding: 0; border: 0; text-decoration: none; }
+.epitaph-portrait img { display: block; width: clamp(230px,30vw,350px); max-width: 100%; height: auto; max-height: 560px; margin: 0 auto; border: 0; border-radius: 0; object-fit: contain; }
+.epitaph-portrait figcaption { margin-top: 14px; color: var(--muted); font-family: "Noto Serif JP", "Yu Mincho", "SimSun", serif; font-size: 13px; line-height: 1.8; letter-spacing: .06em; }
+.epitaph-reader.is-continuous .epitaph-panel { padding: 36px 0; border-top: 1px solid var(--line); }
+.epitaph-reader.is-continuous .epitaph-panel:first-child { padding-top: 4px; border-top: 0; }
+.epitaph-reader.is-continuous .epitaph-panel-title { display: block; }
+.epitaph-reader .is-entering { will-change: opacity, transform; }
+.epitaph-reader :focus-visible { outline: 2px solid var(--accent-dark); outline-offset: 4px; }
+.epitaph-reader [hidden] { display: none !important; }
+@media (max-width: 991px) {
+  .epitaph-languages { grid-template-columns: minmax(0,1fr); gap: 42px; }
+  .epitaph-language { width: 100%; max-width: 620px; margin: 0 auto; }
+}
+@media (max-width: 600px) {
+  .epitaph-reader { padding-top: 20px; }
+  .epitaph-container { width: calc(100% - 32px); }
+  .epitaph-controls { gap: 8px; padding: 4px 0 10px; margin-bottom: 26px; }
+  .epitaph-tabs { gap: 6px; }
+  .epitaph-tab { padding: 9px 10px; font-size: 14px; }
+  .epitaph-continuous { padding: 7px 9px; font-size: 11px; }
+  .epitaph-lines .epitaph-line { font-size: 16px; line-height: 2; }
+  .epitaph-language h3 { margin-bottom: 20px; font-size: 14px; }
+  .epitaph-notes-text p { font-size: 16px; line-height: 1.9; }
+  .epitaph-portrait img { width: min(290px,85vw); }
+  .epitaph-panel-title { font-size: 22px; }
+}
+@media print {
+  .epitaph-controls { display: none !important; }
+  .epitaph-reader .epitaph-panel[hidden] { display: block !important; }
+  .epitaph-reader .epitaph-panel-title { display: block !important; }
+  .epitaph-panel { padding: 24px 0; }
+  .epitaph-language { break-inside: avoid; }
+  .epitaph-reader .is-entering { transform: none !important; opacity: 1 !important; }
+}

@@ -1,0 +1,56 @@
+/* Reuse the second day/night artwork with contact.css's transparency values. */
+body.koureika-page {
+  --koureika-background: url('../img/kakera_world_light2.webp');
+  --koureika-paper: rgba(255,250,240,.84);
+  background: #eee4d4;
+  min-height: 100vh;
+  isolation: isolate;
+}
+.koureika-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--koureika-background) center / cover no-repeat;
+}
+[data-theme="dark"] body.koureika-page {
+  --koureika-background: url('../img/kakera_world_dark2.webp');
+  --koureika-paper: rgba(26,29,28,.86);
+  background: #1c1e1c;
+}
+body.koureika-page > .blog-post,
+body.koureika-page > .background-gray-lightest { background: transparent; }
+body.koureika-page > .background-gray-lightest:first-of-type {
+  background: linear-gradient(180deg,rgba(255,250,240,.78),rgba(255,250,240,.62));
+}
+[data-theme="dark"] body.koureika-page > .background-gray-lightest:first-of-type {
+  background: linear-gradient(180deg,rgba(26,29,28,.82),rgba(26,29,28,.66));
+}
+.koureika-page > .background-gray-lightest:first-of-type .lead { color: #5e513d; }
+[data-theme="dark"] .koureika-page > .background-gray-lightest:first-of-type .lead { color: #d4cabb; }
+.koureika-page .blog-post .koureika-article { background: var(--koureika-paper); }
+.koureika-page .share-buttons {
+  padding: 14px 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--koureika-paper);
+}
+.koureika-page > .section--padding-bottom-small > .container {
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--koureika-paper);
+  box-shadow: var(--shadow-sm);
+}
+.koureika-page > .section--padding-bottom-small .post { background: var(--koureika-paper); }
+@media (max-width: 767px) {
+  .koureika-page > .section--padding-bottom-small > .container { width: calc(100% - 30px); padding: 24px 18px; }
+}
+@media print {
+  body.koureika-page { background: white; }
+  .koureika-page::before { display: none; }
+  .koureika-page > .background-gray-lightest:first-of-type,
+  .koureika-page .blog-post .koureika-article,
+  .koureika-page > .section--padding-bottom-small > .container { background: white; box-shadow: none; }
+}
