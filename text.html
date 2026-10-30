@@ -34,6 +34,8 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
       <link rel="stylesheet" href="css/page-poster.css?v=20261030-6">
+    <link rel="stylesheet" href="css/archive-room.css?v=20261030-2">
+    <script src="js/archive-room.js?v=20261030-2" defer></script>
 </head>
   <body>
     <div id="progress-bar"></div>
@@ -94,111 +96,80 @@
   </div>
 </section>
 
-    <!-- Search + Tags -->
-    <section style="padding-top: 32px; padding-bottom: 0;">
-      <div class="container">
-        <div class="inline-search">
-          <input type="text" id="inline-search-input" placeholder="搜索文章..." autocomplete="off">
+    <!-- Private document archive -->
+    <main class="archive-room" id="archive-room" aria-labelledby="archive-room-title">
+      <div class="archive-container">
+        <header class="archive-masthead"><div><p class="archive-kicker">ROKKENJIMA · PRIVATE ARCHIVE</p><h2 id="archive-room-title">文献目録</h2><p class="archive-subtitle">六軒島文献室 <span>26 篇文献 / 5 个分类</span></p></div><div class="archive-seal" aria-label="右代宮氏 私家蔵"><span>右代宮</span><span>私家蔵</span></div></header>
+        <div class="archive-discovery" hidden>
+          <form class="archive-search" role="search"><label for="archive-query">文献検索</label><div class="archive-search-controls"><input id="archive-query" type="search" placeholder="搜索标题、主题或关键词…" autocomplete="off"><button type="button" id="archive-reset" hidden>清除筛选</button></div></form>
+          <div class="archive-tags" role="group" aria-label="主题索引"><span>主题索引</span><button type="button" class="archive-tag" data-tag="日本" aria-pressed="false">日本</button><button type="button" class="archive-tag" data-tag="galgame" aria-pressed="false">galgame</button><button type="button" class="archive-tag" data-tag="社会" aria-pressed="false">社会</button><button type="button" class="archive-tag" data-tag="日语" aria-pressed="false">日语</button><button type="button" class="archive-tag" data-tag="旅行" aria-pressed="false">旅行</button><button type="button" class="archive-tag" data-tag="文学" aria-pressed="false">文学</button><button type="button" class="archive-tag" data-tag="游戏测评" aria-pressed="false">游戏测评</button><button type="button" class="archive-tag" data-tag="ACG" aria-pressed="false">ACG</button><button type="button" class="archive-tag" data-tag="中国" aria-pressed="false">中国</button><button type="button" class="archive-tag" data-tag="语言学" aria-pressed="false">语言学</button><button type="button" class="archive-tag" data-tag="思考" aria-pressed="false">思考</button><button type="button" class="archive-tag" data-tag="文化" aria-pressed="false">文化</button><button type="button" class="archive-tag" data-tag="技术" aria-pressed="false">技术</button><button type="button" class="archive-tag" data-tag="NAS" aria-pressed="false">NAS</button></div>
         </div>
-        <div id="inline-search-results" class="inline-search-results"></div>
-        <div class="tag-cloud">
-          <span class="tag-cloud-label">标签:</span>
-          <button class="tag-pill" data-tag="日本">日本</button>
-          <button class="tag-pill" data-tag="galgame">galgame</button>
-          <button class="tag-pill" data-tag="社会">社会</button>
-          <button class="tag-pill" data-tag="日语">日语</button>
-          <button class="tag-pill" data-tag="旅行">旅行</button>
-          <button class="tag-pill" data-tag="文学">文学</button>
-          <button class="tag-pill" data-tag="游戏测评">游戏测评</button>
-          <button class="tag-pill" data-tag="ACG">ACG</button>
-          <button class="tag-pill" data-tag="中国">中国</button>
-          <button class="tag-pill" data-tag="语言学">语言学</button>
-          <button class="tag-pill" data-tag="思考">思考</button>
-          <button class="tag-pill" data-tag="文化">文化</button>
-          <button class="tag-pill" data-tag="技术">技术</button>
-          <button class="tag-pill" data-tag="NAS">NAS</button>
-        </div>
-      </div>
-    </section>
-    <!-- Category Grid -->
-    <section style="padding-top: 56px; padding-bottom: 56px;">
-      <div class="container">
-        <div class="category-grid">
-
-          <div class="category-card">
-            <div class="category-head">
-              <div class="category-bar"></div>
-              <h3>游戏测评</h3>
-            </div>
-            <ul class="category-list">
-              <li data-tags="galgame,视觉小说,游戏测评"><a href="eden.html">《Eden*》&mdash; 鸟笼中的救赎之诗</a></li>
-              <li data-tags="游戏测评,中国文化"><a href="wukong.html">《黑神话：悟空》&mdash; 是起点，也仅仅是起点</a></li>
-              <li data-tags="galgame,视觉小说,游戏测评"><a href="wa2.html">梦里不觉秋已深，余情岂是为他人 &mdash; WHITE ALBUM2</a></li>
-              <li data-tags="galgame,日本文化,文学"><a href="seisi.html">关于「ヨスガノソラ」中姓氏的思考</a></li>
-            </ul>
-          </div>
-
-          <div class="category-card">
-            <div class="category-head">
-              <div class="category-bar"></div>
-              <h3>社会思考</h3>
-            </div>
-            <ul class="category-list">
-              <li data-tags="日本,社会,政治,文化认同"><a href="kagaminakanonippon.html"><span class="art-date">11/23</span>镜中日本：从昭和自信到右倾迷失</a></li>
-              <li data-tags="大学,社会,思考"><a href="kokusou.html"><span class="art-date">10/15</span>参加国创赛志愿者的经历及所思</a></li>
-              <li data-tags="中日关系,教育,社会,政治"><a href="hannichi.html"><span class="art-date">9/19</span>中国で溢れた「反日教育」が根深すぎる</a></li>
-              <li data-tags="传统,爱国,社会,文化"><a href="matsuri.html"><span class="art-date">8/12</span>由传统祭祀习俗引发的思考</a></li>
-              <li data-tags="中医,社会,政策,思考"><a href="chuui.html">为什么国家要大力推广中医？</a></li>
-              <li data-tags="日本,青年,文化,社会"><a href="wakamono.html">日本の若者なんか日本人っぽくないよね？</a></li>
-              <li data-tags="ACG,二次元,文化,社会"><a href="nijigen.html">新老二次元之争 &mdash; 从漫展经历聊起</a></li>
-              <li data-tags="中国,青年,社会,教育"><a href="seinen.html">中国青年の人生が一目で尽きるほどか？</a></li>
-              <li data-tags="galgame,行业,老龄化,社会"><a href="koureika.html">美少女ゲーム業界の高齢化について</a></li>
-            </ul>
-          </div>
-
-          <div class="category-card">
-            <div class="category-head">
-              <div class="category-bar"></div>
-              <h3>学术探讨</h3>
-            </div>
-            <ul class="category-list">
-              <li data-tags="NAS,DIY,技术,飞牛OS,IPv6,DDNS,Docker,iCloud"><a href="nas.html"><span class="art-date">9/3</span>我的diy NAS搭建详细记录</a></li>
-              <li data-tags="日语,训读,语言学,学习"><a href="kundo.html">訓読みを解くに基づくのメモリー</a></li>
-              <li data-tags="日语,学习,外语,语言"><a href="gaigo.html">一些外语学习的思考 &mdash; N2 备考感悟</a></li>
-              <li data-tags="日语,汉字,语言学"><a href="douji.html">N1 动词生僻汉字整理（御浚い順）</a></li>
-              <li data-tags="日语,修辞,语言学"><a href="ateji.html">「当て字」についての考え&hellip;</a></li>
-              <li data-tags="数学,概率,游戏"><a href="montyhall.html">「うみねこのなく頃に」Monty Hall 问题思考</a></li>
-              <li data-tags="博客,技术,建站"><a href="A way to create a web for beginners.html">个人博客搭建日记 &mdash; GitHub Pages + 阿里云</a></li>
-            </ul>
-          </div>
-
-          <div class="category-card">
-            <div class="category-head">
-              <div class="category-bar"></div>
-              <h3>文学艺术</h3>
-            </div>
-            <ul class="category-list">
-              <li data-tags="文言文,日语,语言,文学,教育"><a href="nihongo.html">浅论高中文言文与日本语的联系</a></li>
-              <li data-tags="文学,比较文学"><a href="seinoninkan.html">从《沉沦》到《性的人》</a></li>
-            </ul>
-          </div>
-
-          <div class="category-card">
-            <div class="category-head">
-              <div class="category-bar"></div>
-              <h3>人生杂笔</h3>
-            </div>
-            <ul class="category-list">
-              <li data-tags="旅行,日本,北海道,游记,冬季,道东,大雪山,铁路"><a href="hokkaido-winter.html"><span class="art-date">10/23</span>北海道を満喫するたび——道央、道东与大雪山旅行记录</a></li>
-              <li data-tags="随笔,生活,思考"><a href="essay1.html">嘉興南湖の畔に随筆</a></li>
-              <li data-tags="旅行,日本,北海道,游记"><a href="hokkaido.html">北海道观察日记 &mdash; 道北线旅行记录</a></li>
-              <li data-tags="旅行,日本,四国,游记"><a href="sikoku.html">四国横断记 &mdash; 神户 &middot; 松山 &middot; 西濑户</a></li>
-            </ul>
-          </div>
-
+        <div class="archive-body">
+          <aside class="archive-sidebar">
+            <nav class="archive-categories" aria-label="文献分类" hidden><p class="archive-sidebar-caption">分類索引</p><button type="button" data-category="all" aria-pressed="true"><span class="archive-class-code">全</span><span>全部文献</span><span class="archive-nav-count">26</span></button><button type="button" data-category="c1" aria-pressed="false"><span class="archive-class-code">I</span><span>游戏测评</span><span class="archive-nav-count">04</span></button><button type="button" data-category="c2" aria-pressed="false"><span class="archive-class-code">II</span><span>社会思考</span><span class="archive-nav-count">09</span></button><button type="button" data-category="c3" aria-pressed="false"><span class="archive-class-code">III</span><span>学术探讨</span><span class="archive-nav-count">07</span></button><button type="button" data-category="c4" aria-pressed="false"><span class="archive-class-code">IV</span><span>文学艺术</span><span class="archive-nav-count">02</span></button><button type="button" data-category="c5" aria-pressed="false"><span class="archive-class-code">V</span><span>人生杂笔</span><span class="archive-nav-count">04</span></button></nav>
+            <section class="archive-preview" aria-label="文献题记" hidden><p class="archive-sidebar-caption">文献題記</p><img id="archive-preview-image" alt="" decoding="async" loading="lazy" hidden><p class="archive-preview-number"></p><h3 id="archive-preview-title"></h3><p id="archive-preview-excerpt"></p><a id="archive-preview-link">阅读全文 <span aria-hidden="true">→</span></a></section>
+          </aside>
+          <section class="archive-catalog" aria-labelledby="archive-list-title"><header class="archive-catalog-heading"><h3 id="archive-list-title">全蔵目録</h3><p id="archive-result-count" role="status" aria-live="polite">26 篇文献</p></header>
+            <div class="archive-column-head" aria-hidden="true"><span>No.</span><span>文献</span><span>分類</span><span>記録</span><span></span></div>
+            <ol class="archive-list"><li class="archive-entry" data-category="c1" data-tags="galgame,视觉小说,游戏测评" data-image="img/blog4.jpg" data-excerpt="昙花一现，因为昙花的花期短暂，所以人们难得一见而视珍贵。流星划过夜空，也因它的短暂而被人们许下心愿希望能实现">
+          <a class="archive-link" href="eden.html"><span class="archive-number">001</span><span class="archive-title">《Eden*》— 鸟笼中的救赎之诗</span><span class="archive-meta"><span class="archive-category">游戏测评</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c1" data-tags="游戏测评,中国文化" data-image="img/blog15.webp" data-excerpt="随着大圣残躯被击败，用时55小时，我通关了国产首部3A游戏《黑神话：悟空》">
+          <a class="archive-link" href="wukong.html"><span class="archive-number">002</span><span class="archive-title">《黑神话：悟空》— 是起点，也仅仅是起点</span><span class="archive-meta"><span class="archive-category">游戏测评</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c1" data-tags="galgame,视觉小说,游戏测评" data-image="img/blog5.jpg" data-excerpt="ホワイトアルバム、なんて知らないだって、もう何も歌えない届かない">
+          <a class="archive-link" href="wa2.html"><span class="archive-number">003</span><span class="archive-title">梦里不觉秋已深，余情岂是为他人 — WHITE ALBUM2</span><span class="archive-meta"><span class="archive-category">游戏测评</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c1" data-tags="galgame,日本文化,文学" data-image="img/blog1.jpg" data-excerpt="「春日野」实际是一个地名，位于如今奈良的春日大社附近，若草山一带">
+          <a class="archive-link" href="seisi.html"><span class="archive-number">004</span><span class="archive-title">关于「ヨスガノソラ」中姓氏的思考</span><span class="archive-meta"><span class="archive-category">游戏测评</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="日本,社会,政治,文化认同" data-image="img/blog26.jpg" data-excerpt="前段时间我曾写过一篇文章，文中我表达了对现代日本青年越来越没有文化认同感现象的惋惜">
+          <a class="archive-link" href="kagaminakanonippon.html"><span class="archive-number">005</span><span class="archive-title">镜中日本：从昭和自信到右倾迷失</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="记录日期：11/23">11/23</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="大学,社会,思考" data-image="img/blog20.webp" data-excerpt="今年的中国国际大学生创新大赛在sjtu举行，比赛阵势很大，甚至全校需要停课四天来保证活动顺利举行">
+          <a class="archive-link" href="kokusou.html"><span class="archive-number">006</span><span class="archive-title">参加国创赛志愿者的经历及所思</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="记录日期：10/15">10/15</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="中日关系,教育,社会,政治" data-image="img/blog18.jpg" data-excerpt="批判的な思考力がある進歩的な青年を早急に育成すべきと思われる">
+          <a class="archive-link" href="hannichi.html"><span class="archive-number">007</span><span class="archive-title">中国で溢れた「反日教育」が根深すぎる</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="记录日期：9/19">9/19</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="传统,爱国,社会,文化" data-image="img/blog13.webp" data-excerpt="真正的爱国，是热爱自己故乡的一山一水，一草一木，了解家乡的每一条小溪、每一个寺庙">
+          <a class="archive-link" href="matsuri.html"><span class="archive-number">008</span><span class="archive-title">由传统祭祀习俗引发的思考</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="记录日期：8/12">8/12</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="中医,社会,政策,思考" data-image="img/blog16.jpg" data-excerpt="中医是中国的传统医学，在这片土地上已经存在了数千年">
+          <a class="archive-link" href="chuui.html"><span class="archive-number">009</span><span class="archive-title">为什么国家要大力推广中医？</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="日本,青年,文化,社会" data-image="img/blog25.jpg" data-excerpt="本文是一篇随笔，文风较为随意，如标题所示主要想抒发一下我在関学的短期研修期间的感触">
+          <a class="archive-link" href="wakamono.html"><span class="archive-number">010</span><span class="archive-title">日本の若者なんか日本人っぽくないよね？</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="ACG,二次元,文化,社会" data-image="img/blog19.jpg" data-excerpt="作为一个接触ACG文化许多年，入宅接近十年的我的角度看，每次当新兴二次元爱好者滥用「动漫」这个词的时候都很难受">
+          <a class="archive-link" href="nijigen.html"><span class="archive-number">011</span><span class="archive-title">新老二次元之争 — 从漫展经历聊起</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="中国,青年,社会,教育" data-image="img/blog11.webp" data-excerpt="小学校から修士まですべての努力は、いくつかの踏み台という卒業証書のために">
+          <a class="archive-link" href="seinen.html"><span class="archive-number">012</span><span class="archive-title">中国青年の人生が一目で尽きるほどか？</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c2" data-tags="galgame,行业,老龄化,社会" data-image="img/blog22.webp" data-excerpt="老龄化浪潮对游戏行业造成了严重冲击，尤其是在倾向于高度个性化的美少女游戏领域">
+          <a class="archive-link" href="koureika.html"><span class="archive-number">013</span><span class="archive-title">美少女ゲーム業界の高齢化について</span><span class="archive-meta"><span class="archive-category">社会思考</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="NAS,DIY,技术,飞牛OS,IPv6,DDNS,Docker,iCloud" data-image="img/nas/nas-01.webp" data-excerpt="让一台2014年的联想老电脑重新成为家用 NAS：记录硬件维修与升级、飞牛 OS 安装、公网 IPv6 与 DDNS、HTTPS 远程访问，以及 Docker 和 iCloud 照片备份的折腾过程。">
+          <a class="archive-link" href="nas.html"><span class="archive-number">014</span><span class="archive-title">我的diy NAS搭建详细记录</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="记录日期：9/3">9/3</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="日语,训读,语言学,学习" data-image="img/blog6.webp" data-excerpt="日文分为「音読み」和「訓読み」，因为日文有着音读这个与汉语相似的点">
+          <a class="archive-link" href="kundo.html"><span class="archive-number">015</span><span class="archive-title">訓読みを解くに基づくのメモリー</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="日语,学习,外语,语言" data-image="img/blog9.webp" data-excerpt="笔者最近在备考N2，在学习的过程中不免有了一些自己的思考和总结">
+          <a class="archive-link" href="gaigo.html"><span class="archive-number">016</span><span class="archive-title">一些外语学习的思考 — N2 备考感悟</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="日语,汉字,语言学" data-image="img/blog21.webp" data-excerpt="宫崎英高曾在访谈中谈到游戏中使用汉字是一件很帅的事情">
+          <a class="archive-link" href="douji.html"><span class="archive-number">017</span><span class="archive-title">N1 动词生僻汉字整理（御浚い順）</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="日语,修辞,语言学" data-image="img/blog23.jpg" data-excerpt="「当て字」可以看成是日文里常见的一种修辞手法，类似于临时假借/借喻">
+          <a class="archive-link" href="ateji.html"><span class="archive-number">018</span><span class="archive-title">「当て字」についての考え…</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="数学,概率,游戏" data-image="img/blog12.webp" data-excerpt="「うみねこのなく頃に」是我特别喜欢的一系列作品，也对我影响特别大">
+          <a class="archive-link" href="montyhall.html"><span class="archive-number">019</span><span class="archive-title">「うみねこのなく頃に」Monty Hall 问题思考</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c3" data-tags="博客,技术,建站" data-image="img/blog14.jpg" data-excerpt="这几天搭建博客的过程不是一帆风顺的，踩了很多坑。后来万幸汲取了先辈的建议">
+          <a class="archive-link" href="A way to create a web for beginners.html"><span class="archive-number">020</span><span class="archive-title">个人博客搭建日记 — GitHub Pages + 阿里云</span><span class="archive-meta"><span class="archive-category">学术探讨</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c4" data-tags="文言文,日语,语言,文学,教育" data-image="img/blog3.jpg" data-excerpt="文言文作为中国文化的精粹，如今也是如今高考语文的重要题型">
+          <a class="archive-link" href="nihongo.html"><span class="archive-number">021</span><span class="archive-title">浅论高中文言文与日本语的联系</span><span class="archive-meta"><span class="archive-category">文学艺术</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c4" data-tags="文学,比较文学" data-image="img/blog8.webp" data-excerpt="不管郁达夫的《沉沦》，还是大江健三郎的《性的人》，其中的青年对未来态度的转变，思想的觉醒，对于不同时代的我们仍有教育意义">
+          <a class="archive-link" href="seinoninkan.html"><span class="archive-number">022</span><span class="archive-title">从《沉沦》到《性的人》</span><span class="archive-meta"><span class="archive-category">文学艺术</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c5" data-tags="旅行,日本,北海道,游记,冬季,道东,大雪山,铁路" data-image="img/hokkaido-winter/cover.webp" data-excerpt="冬日再访北海道，从登别、小樽到钏路、川汤温泉与知床，再沿石北本线走向旭川和大雪山，记录雪中的车站、湖海与山野，也补上上一次旅程的遗憾。">
+          <a class="archive-link" href="hokkaido-winter.html"><span class="archive-number">023</span><span class="archive-title">北海道を満喫するたび——道央、道东与大雪山旅行记录</span><span class="archive-meta"><span class="archive-category">人生杂笔</span><span class="archive-date" aria-label="记录日期：10/23">10/23</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c5" data-tags="随笔,生活,思考" data-image="img/blog10.jpg" data-excerpt="牧歌的な時代はもはや昔くなった、この騒々しい社会では、私たちは常に忙しくて">
+          <a class="archive-link" href="essay1.html"><span class="archive-number">024</span><span class="archive-title">嘉興南湖の畔に随筆</span><span class="archive-meta"><span class="archive-category">人生杂笔</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c5" data-tags="旅行,日本,北海道,游记" data-image="img/blog17.jpg" data-excerpt="从大阪关西机场乘坐乐桃航空MM113号航班，我们开始了为期四天的北海道旅程">
+          <a class="archive-link" href="hokkaido.html"><span class="archive-number">025</span><span class="archive-title">北海道观察日记 — 道北线旅行记录</span><span class="archive-meta"><span class="archive-category">人生杂笔</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li><li class="archive-entry" data-category="c5" data-tags="旅行,日本,四国,游记" data-image="img/blog24.webp" data-excerpt="我沿着四国岛濑户内海海岸线而行，并未去四国南面土佐高知的山区，但即使是香川的高松，也弥漫着一股与本州截然不同的封闭与消沉">
+          <a class="archive-link" href="sikoku.html"><span class="archive-number">026</span><span class="archive-title">四国横断记 — 神户 · 松山 · 西濑户</span><span class="archive-meta"><span class="archive-category">人生杂笔</span><span class="archive-date" aria-label="未标注日期">—</span></span><span class="archive-arrow" aria-hidden="true">↗</span></a>
+        </li></ol>
+            <div class="archive-empty" hidden><p>没有找到相符的文献。</p><button type="button" id="archive-empty-reset">清除搜索与筛选</button></div>
+            <p class="archive-date-note">— 未标注日期</p>
+          </section>
         </div>
       </div>
-    </section>
+    </main>
 
     <!-- Recommendations -->
 <footer class="footer">
