@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>基于飞牛NAS的同人志库搭建记录 — うしろみや</title>
+    <meta name="description" content="从哔咔收藏夹到 Komga 书架的部署与排错过程">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+    <!-- Open Graph -->
+    <meta property="og:title" content="基于飞牛NAS的同人志库搭建记录">
+    <meta property="og:description" content="从哔咔收藏夹到 Komga 书架的部署与排错过程">
+    <meta property="og:image" content="https://ushiromiya.jp/img/doujin-nas/figure-02.png">
+    <meta property="og:url" content="https://ushiromiya.jp/doujin-nas.html">
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2026-11-06">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ushiromiya.jp/doujin-nas.html">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Font Awesome & Pixeden Icon Stroke icon font-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/pe-icon-7-stroke.css">
+    <!-- Google fonts - Roboto Condensed & Roboto-->
+    <!-- lightbox-->
+    <link rel="stylesheet" href="css/lightbox.min.css">
+    <!-- theme stylesheet-->
+    <link rel="stylesheet" href="css/style.default.css" id="theme-stylesheet">
+    <!-- Custom stylesheet - for your changes-->
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/blog-enhance.css">
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="favicon.png">
+    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <!-- Structured Data -->
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "基于飞牛NAS的同人志库搭建记录",
+  "description": "从哔咔收藏夹到 Komga 书架的部署与排错过程",
+  "image": "https://ushiromiya.jp/img/doujin-nas/figure-02.png",
+  "datePublished": "2026-11-06",
+  "dateModified": "2026-11-06",
+  "author": {
+    "@type": "Person",
+    "name": "右代宮氏"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "右代宮氏"
+  },
+  "url": "https://ushiromiya.jp/doujin-nas.html",
+  "mainEntityOfPage": "https://ushiromiya.jp/doujin-nas.html",
+  "inLanguage": "zh-CN",
+  "articleSection": "学术探讨",
+  "keywords": [
+    "NAS",
+    "飞牛OS",
+    "同人志",
+    "Komga",
+    "Docker",
+    "CBZ"
+  ]
+}
+    </script>
+    <meta name="twitter:title" content="基于飞牛NAS的同人志库搭建记录">
+    <meta name="twitter:description" content="从哔咔收藏夹到 Komga 书架的部署与排错过程">
+    <meta name="twitter:image" content="https://ushiromiya.jp/img/doujin-nas/figure-02.png">
+    <link rel="stylesheet" href="css/nas.css?v=20261030-photo-1">
+    <style>
+      .nas-article pre[data-code-language="Shell"] .code-comment { color: #a2b0bf; }
+      .blog-post .post-content .doujin-sources > h2 {
+        margin: 0 0 .7em;
+        font-size: clamp(24px, 2.7vw, 30px);
+        line-height: 1.4;
+      }
+      .doujin-sources {
+        margin: clamp(36px, 5vw, 58px) 0 0;
+        padding-top: 20px;
+        border-top: 1px solid var(--line);
+      }
+      .blog-post .post-content .doujin-sources > ol {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--surface);
+        list-style: none;
+      }
+      .blog-post .post-content .doujin-sources li { margin: 0; }
+      .doujin-sources li + li { border-top: 1px solid var(--line); }
+      .doujin-sources .doujin-source {
+        display: grid;
+        grid-template-columns: 2.2em minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px;
+        padding: 12px clamp(10px, 2vw, 18px);
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.55;
+        text-decoration: none;
+      }
+      .doujin-source:hover, .doujin-source:focus-visible { background: var(--surface-soft); }
+      .doujin-source:focus-visible { outline: 2px solid var(--accent-dark); outline-offset: -2px; }
+      .doujin-source::after {
+        content: "↗";
+        color: var(--accent-dark);
+        font-size: 14px;
+      }
+      .doujin-source-number {
+        border-radius: 4px;
+        background: var(--surface-soft);
+        color: var(--accent-dark);
+        font: 12px/2 Consolas, monospace;
+        text-align: center;
+      }
+      .doujin-source:hover .doujin-source-title, .doujin-source:focus-visible .doujin-source-title {
+        text-decoration: underline;
+        text-underline-offset: .18em;
+      }
+      .doujin-source-title, .doujin-source-url { display: block; overflow-wrap: anywhere; }
+      .doujin-source-url {
+        margin-top: 2px;
+        color: var(--ink-soft);
+        font: 12px/1.5 Consolas, monospace;
+      }
+    </style>
+</head>
+  <body class="nas-page">
+    <div id="progress-bar"></div>
+    <!-- Search Overlay -->
+    <div id="search-overlay">
+      <button id="search-close" aria-label="关闭搜索">&times;</button>
+      <div class="search-overlay-inner">
+        <input type="text" id="search-input" placeholder="搜索文章..." autocomplete="off">
+        <div id="search-results"></div>
+      </div>
+    </div>
+    <!-- navbar-->
+    <header class="header">
+      <div role="navigation" class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header"><a href="index.html" class="navbar-brand">うしろみや
+          </a>
+            <div class="navbar-buttons">
+              <button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle navbar-btn">Menu<i class="fa fa-align-justify"></i></button>
+            </div>
+            <button id="search-toggle" class="search-toggle" aria-label="搜索"><i class="fa fa-search"></i></button>
+            <button id="theme-toggle" class="theme-toggle" aria-label="切换主题"><i class="fa fa-moon-o"></i></button>
+          </div>
+          <div id="navigation" class="collapse navbar-collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li><a href="index.html">公式サイト</a></li>
+              <li class="active"><a href="text.html">魔女の蕃茄園</a></li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">茶話会 <b class="caret"></b></a>
+                <ul class="dropdown-menu"><li><a href="game.html">鎮守の社(ゲーム)</a></li><li><a href="ongaku.html">九羽鳥庵(音楽)</a></li></ul>
+              </li>
+              <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">屋敷本館 <b class="caret"></b></a>
+                <ul class="dropdown-menu"><li><a href="hibun.html">右代宮の碑文</a></li><li><a href="genga.html">魔女の肖像画</a></li></ul>
+              </li>
+              <li><a href="fragments.html">かけらの世界</a></li>
+              <li><a href="contact.html">観劇の控え室</a></li>
+            </ul>
+</div>
+        </div>
+      </div>
+    </header>
+    <!-- login modal removed -->
+    <main>
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs"><ul class="breadcrumb">
+          <li><a href="text.html">魔女の蕃茄園</a></li><li>学术探讨</li><li>基于飞牛NAS的同人志库搭建记录</li>
+        </ul></div>
+        <h1>基于飞牛NAS的同人志库搭建记录</h1>
+        <p class="lead"><strong>从哔咔收藏夹到 Komga 书架的部署与排错过程</strong></p>
+      </div>
+    </section>
+    <section class="blog-post">
+      <div class="container"><div class="row"><div class="col-lg-12">
+        <details class="toc-container"><summary>目录</summary><nav class="toc-nav" aria-label="文章目录"></nav></details>
+        <article class="post-content margin-bottom--big nas-article" data-article-id="doujin-nas" data-category="学术探讨" data-tags="NAS,飞牛OS,同人志,Komga,Docker,CBZ" data-date="2026-11-06">
+          <div class="nas-meta"><time datetime="2026-11-06">2026.11.06 文</time><span class="reading-time"></span></div>
+<p>几个月前我把老家的联想台式机改造成了一台飞牛 NAS，折腾了公网 IPv6、DDNS 和 iCloud 照片备份。正如网上说的，人一旦开始折腾就停不下来，这段时间我在NAS上部署了qq聊天机器人，Stash视频库等功能。最近我把眼光放在自己硬盘存储的，和网上收藏却没下载的无数同人志。 </p>
+<p>我的想法其实很简单：在手机上看到喜欢的漫画，点一下收藏，家里的 NAS 便负责把文件下载下来，整理成能阅读的格式；以后换手机或者原来的服务出了问题，也不至于让收藏跟着消失。而打开这些文件时，我又不希望面对一层套一层的文件夹，最好像 NeatReader 那样，有封面、有书架，点进去便可以阅读。</p>
+<p>听起来只是给 NAS 多装两个 Docker，实际过程却相当曲折。从源码构建，到公网端口不通，再到浏览器反复弹出认证窗口，最后索性更换下载方案，前后又给我补了一课。下面便把这次搭建的经过记录下来，也给以后重新部署时的自己留一份说明。</p>
+<figure><a href="img/doujin-nas/figure-01.png" data-lightbox="doujin-nas-gallery" data-title="图 1 同人志库的系统架构"><img src="img/doujin-nas/figure-01.png" alt="图 1 同人志库的系统架构" width="1157" height="282" loading="eager" decoding="async"></a><figcaption>图 1 同人志库的系统架构</figcaption></figure>
+<h2 id="section-1">一 同人志的归处</h2>
+<p>这也延续了我当初搭 NAS 时的想法，能自己留住的东西，就尽量留在自己手里。我家里攒了不少同人志，有些是在日本逛店时买的，有些是后来从网上海淘回来的，还有相当一部分没来得及扫描归档。有些系列早就停更了，有些本子也已经绝版，网上几乎找不到扫描版。哪天弄丢了，想再买一本，说不定只能指望秋叶原某家二手书店的仓库里还躺着一册。对我来说，手上这本差不多就是孤本了。</p>
+<p>硬盘里也攒了不少漫画，但存进 NAS 只是第一步。哪天硬盘坏了，或者自己一不小心删错了东西，这些年收集的文件，连同书库配置和阅读进度，都可能一起丢掉。纸本得找时间慢慢扫，已经存下来的东西，也得在另一块硬盘上留一份。毕竟有些本子，丢了就真的找不回来了。</p>
+<h2 id="section-2">二 从网页下载器到第一本书</h2>
+<p>我起初选的是带网页的下载器，想着用浏览器搜索、点下载会省事。程序在 NAS 上已经跑起来了，我在学校却连不上它。换了对外端口，页面终于打开，浏览器又反复弹出认证窗口。同一组凭据在测试请求里能用，网页却还是过不去。我没查到具体是哪条请求触发了弹窗，便重新想了一遍自己每天会怎样用这个系统。</p>
+<p>发现作品和点收藏，本来就在手机上完成。这样一来，NAS 上的下载器只需按时读列表，跑完一轮就退出。我换成了 pica_crawler，把书架留给 Komga。换项目之后还有一段路要查。学校的电脑能不能连回家，和家里的 NAS 能不能连到漫画服务器，是两个方向。分开测试后，IPv4 还在超时，IPv6 已经收到了 API 的响应。接着我在容器里实际登录，读到了 83 本收藏。</p>
+<p>第一轮我只挑了一本 22 页的作品。图片先存进工作目录，下载结束后再把每一话打成一个 CBZ 压缩包。我留着原图，万一哪一页没下来，后面还有机会补。Komga 则只读归档目录。等我确认压缩包能打开，终于可以翻到那一本的第一张图，这时才敢把范围放到整个收藏夹。</p>
+<h2 id="section-3">三 从文件夹到魔女档案室</h2>
+<p>我最期待的变化，是不用再对着硬盘上一串文件名猜哪本是哪本。Komga 扫出封面和系列以后，收藏才有了书架的样子。批量任务刚开始时，终端已经刷过一排 100%，书架却还没有动静。我后来才弄清楚，图片会先落地，爬虫得等下载阶段结束才集中导出。日志里的进度走在前面，书架要等到文件真正写进去。</p>
+<p>我给这间书库起名叫“魔女档案室”。从六轩岛的小站到这次搭书架，我总忍不住把《海猫鸣泣之时》的意象放进自己做的东西里。深黑背景、暗紫面板和一点古金色，浏览时像在自己的收藏室里。真正点进去阅读，我还是希望界面尽量安静，把位置让给画面。</p>
+<figure><a href="img/doujin-nas/figure-02.png" data-lightbox="doujin-nas-gallery" data-title="图 2 我的 Komga 同人志书库"><img src="img/doujin-nas/figure-02.png" alt="图 2 我的 Komga 同人志书库" width="2088" height="1173" loading="lazy" decoding="async"></a><figcaption>图 2 我的 Komga 同人志书库</figcaption></figure>
+<h2 id="section-4">四 凌晨四点的同步任务</h2>
+<p>等一轮手动下载能走完，我给 NAS 设了凌晨四点的任务。11 月 5 日，日志在 04:00:02 准时写下“开始自动同步收藏夹”。我以为醒来就能看到新书，结果 27 秒后它已经退出了。我手动跑了一次，才发现程序卡在登录，连收藏列表都没读到。</p>
+<p>换上备用 API 后，容器重新登录成功，读到的收藏从 83 本变成了 100 本。接着我又发现，旧图片虽然会被本地文件检查跳过，程序仍要一遍遍查询那些已经完成的章节。我把判断提到了章节这一级，先查下载记录，留下还没处理过的章节。遇到旧归档缺页，仍要按页码另行核对。</p>
+<p>登录恢复以后，部分图片依然超时。作品和章节是从 API 读到的，真正的图片会从另外的服务器下载。我换了其中一个图片域名，样本能取回来，可另一些链接又跳回原来超时的服务器。手动验证最后跑到了导出结束，日志里能数到 35 条 CBZ 导出记录。一部作品可以有好几话，所以书架新增了多少本，还得等扫描后按系列数。</p>
+<h2 id="section-5">五 补上归档里的那一页</h2>
+<p>我想到给图片下载留一条备用路。平时让 NAS 直连，某一页超时了，再交给 Cloudflare 上的中继去取。它只负责图片，账号登录和收藏列表仍由家里的爬虫处理。至于中继能不能取到直连失败的那些图，我想先挑一话缺页的作品试一遍。</p>
+<p>就算原图补齐了，旧 CBZ 也还在原地。比如本来有 44 页的一话，第一次只打进了 41 页，后来把三张补进图片目录，Komga 打开的仍然是那份旧归档。我还得按页码重新打包，核对图片和页数，再让书架扫描。附录里保留了中继和重打包的两张方案图。修复后的下一次定时运行，以及旧归档实际补齐了多少，都还要看后续结果。</p>
+<h2 id="section-6">六 书架之外</h2>
+<p>回头看，那台曾经连屏幕都点不亮的联想老电脑，现在已经在家里替我备份照片、保存文件，又多了一座慢慢积累起来的漫画书库。第一次在 Komga 里看到封面、点开那二十二页的时候，确实有一种“总算把这些零散步骤接起来了”的满足感。おめでとう！现在我更想看的是下一次凌晨四点的日志，以及那几章缺的图片能不能补上。老电脑在家继续跑，我也终于可以把 SSH 窗口关掉去吃饭了。</p>
+<h2 id="section-7">技术附录</h2>
+<p>以下记录本次部署的路径、配置和验证命令。示例中的目录、UID 和 GID 对应这台飞牛 NAS。公开版本保留配置键和路径，账号、密码和 Token 已经全部隐去。</p>
+<h3 id="section-8">A 网页下载器与连通性检查</h3>
+<p>试用项目为 picacomic-downloader-web。[1] 当时版本由 PICA_COMIC_PATH 指定宿主机漫画目录，容器内挂到 /comic-download。Docker 管理需要有权限的用户。公网排障时，宿主机端口从 8080 改为 18080，容器继续监听 8080。NAS 本机和 Windows 公网侧均可用后台凭据访问 /api/config。Basic Auth 使用后台账号及 Token，哔咔登录使用另一套账号凭据。</p>
+<p>出站测试在 NAS 的 SSH 终端运行。本次 IPv4 超时，IPv6 返回 400，说明当时 API 根路径已有 HTTPS 响应。登录、收藏夹和图片地址需要继续分别验证。</p>
+<pre data-code-language="Shell"><code><span class="code-command">curl</span> <span class="code-option">-4</span> <span class="code-option">-sS</span> <span class="code-option">--connect-timeout</span> <span class="code-value">10</span> <span class="code-option">-o</span> <span class="code-path">/dev/null</span> \
+  <span class="code-option">-w</span> <span class="code-value">'IPv4 HTTP %{http_code}\n'</span> <span class="code-path">https://picaapi.picacomic.com/</span>
+<span class="code-command">curl</span> <span class="code-option">-6</span> <span class="code-option">-sS</span> <span class="code-option">--connect-timeout</span> <span class="code-value">10</span> <span class="code-option">-o</span> <span class="code-path">/dev/null</span> \
+  <span class="code-option">-w</span> <span class="code-value">'IPv6 HTTP %{http_code}\n'</span> <span class="code-path">https://picaapi.picacomic.com/</span></code></pre>
+<figure><a href="img/doujin-nas/figure-03.png" data-lightbox="doujin-nas-gallery" data-title="图 3 公网入站与爬虫出站的两条排障路径"><img src="img/doujin-nas/figure-03.png" alt="图 3 公网入站与爬虫出站的两条排障路径" width="1800" height="620" loading="lazy" decoding="async"></a><figcaption>图 3 公网入站与爬虫出站的两条排障路径</figcaption></figure>
+<h3 id="section-9">B 爬虫目录与镜像配置</h3>
+<p>在 NAS 上进入 Docker 项目目录后克隆仓库。[2] SSH 重新登录后通常回到主目录，先切换到正确路径。若已有 pica_crawler 目录，直接进入并检查现有文件。</p>
+<pre data-code-language="Shell"><code><span class="code-command">cd</span> <span class="code-path">/vol2/1000/docker</span>
+<span class="code-command">git clone</span> <span class="code-path">https://github.com/lx1169732264/pica_crawler.git</span>
+<span class="code-command">cd</span> <span class="code-path">/vol2/1000/docker/pica_crawler</span></code></pre>
+<p>以 config/config_backup.ini 为模板准备 config/config.ini，保留模板其他区段和已有凭据。[3] 以下是本次使用的参数。change_favourite 保留收藏，merge_episodes 关闭后按章节导出，排行榜和关键词订阅关闭。</p>
+<pre data-code-language="INI"><code>[param]
+change_favourite: False
+merge_episodes: False
+export_pdf: False
+export_cbz: True
+ 
+[download]
+download_ranked_comics: False
+download_favourite_comics: True
+specific_comics_ids:
+ 
+[crawl]
+concurrency: 5
+interval_time: 5
+request_time_out: 10</code></pre>
+<p>镜像构建使用 COPY . /app。以下内容放入项目根目录的 .dockerignore，避免配置、备份和工作数据进入镜像。运行时从挂载目录读取配置。</p>
+<pre data-code-language="Text"><code>.git
+config/config.ini
+config/*.bak*
+data/
+logs/
+comics/
+comics_pdf/
+comics_cbz/
+output/</code></pre>
+<p>爬虫的 Compose 配置写入项目目录的 docker-compose.yml。host 网络共享宿主机的网络条件，restart 设为 no 以便单次任务正常退出。PACKAGE_TYPE 关闭额外的 ZIP 打包，CBZ 由 config.ini 的 export_cbz 控制。</p>
+<pre data-code-language="YAML"><code>services:
+  picacg-download:
+    image: picacg-download:latest
+    build: .
+    network_mode: host
+    volumes:
+      - ./comics:/app/comics
+      - ./comics_pdf:/app/comics_pdf
+      - /vol2/1000/NAS_2/Manga:/app/comics_cbz
+      - ./output:/app/output
+      - ./logs:/app/logs
+      - ./data:/app/data
+      - ./config:/app/config
+    environment:
+      - PACKAGE_TYPE=False
+      - DELETE_COMIC=False
+      - CHANGE_FAVOURITE=False
+    restart: "no"</code></pre>
+<p>在项目目录执行 sudo docker compose config --quiet 和 sudo docker compose build。首次构建约 13 分钟，等待主要出现在镜像和 Python 依赖下载阶段。旧版 version 字段的 obsolete 提示可与实际构建错误分开看。</p>
+<figure><a href="img/doujin-nas/figure-04.png" data-lightbox="doujin-nas-gallery" data-title="图 4 原图、CBZ 与 Komga 只读挂载的目录关系"><img src="img/doujin-nas/figure-04.png" alt="图 4 原图、CBZ 与 Komga 只读挂载的目录关系" width="1800" height="650" loading="lazy" decoding="async"></a><figcaption>图 4 原图、CBZ 与 Komga 只读挂载的目录关系</figcaption></figure>
+<h3 id="section-10">C 单本验证与 Komga 部署</h3>
+<p>镜像构建后，可只执行登录和读取收藏夹来确认容器的连接。下面的测试抑制登录过程的标准输出，最终打印收藏数量。</p>
+<pre data-code-language="Shell"><code><span class="code-command">sudo docker compose run</span> <span class="code-option">--rm</span> <span class="code-option">--no-deps</span> \
+  <span class="code-option">--entrypoint</span> <span class="code-command">python</span> picacg-download <span class="code-option">-c</span> <span class="code-value">'</span>
+<span class="code-option">import</span> sys
+<span class="code-option">from</span> io <span class="code-option">import</span> <span class="code-command">StringIO</span>
+<span class="code-option">from</span> contextlib <span class="code-option">import</span> <span class="code-command">redirect_stdout</span>
+sys.path.insert(<span class="code-value">0</span>, <span class="code-value">"/app/src"</span>)
+<span class="code-option">from</span> client <span class="code-option">import</span> <span class="code-command">Pica</span>
+p = <span class="code-command">Pica</span>()
+<span class="code-option">with</span> <span class="code-command">redirect_stdout</span>(<span class="code-command">StringIO</span>()):
+    p.login()
+    items = p.my_favourite_all()
+<span class="code-command">print</span>(<span class="code-value">"收藏夹读取成功 共"</span>, <span class="code-command">len</span>(items), <span class="code-value">"本"</span>)
+<span class="code-value">'</span></code></pre>
+<p>单本试跑时备份 config.ini，把 download_favourite_comics 暂设为 False，并在 specific_comics_ids 中填入测试作品 ID。在项目目录前台运行 sudo docker compose run --rm --no-deps picacg-download。检查 Manga 中的 CBZ，可用 Python 的 zipfile.testzip() 检查压缩包，再对照源站页数并打开阅读。批量运行前恢复收藏夹下载，清空测试 ID。</p>
+<figure><a href="img/doujin-nas/figure-05.png" data-lightbox="doujin-nas-gallery" data-title="图 5 22 页单本测试的验证结果"><img src="img/doujin-nas/figure-05.png" alt="图 5 22 页单本测试的验证结果" width="1800" height="600" loading="lazy" decoding="async"></a><figcaption>图 5 22 页单本测试的验证结果</figcaption></figure>
+<p>Komga 单独部署，数据库和配置写到本地挂载目录，漫画库在界面里填写容器路径 /books。下面的 UID:GID 为本机的 1000:1001，其他环境可用 id 查看本机值。25600 为本次测试的 HTTP 端口。若要长期公网访问，需要单独为该服务配置 HTTPS。[4]</p>
+<pre data-code-language="YAML"><code>services:
+  komga:
+    image: gotson/komga:1.x
+    container_name: komga
+    user: "1000:1001"
+    ports:
+      - "25600:25600"
+    volumes:
+      - /vol2/1000/docker/komga/config:/config
+      - /vol2/1000/docker/komga/data:/data
+      - /vol2/1000/NAS_2/Manga:/books:ro
+    environment:
+      TZ: Asia/Shanghai
+    restart: unless-stopped</code></pre>
+<p>保存 Compose 配置后，在 NAS 的 SSH 终端启动 Komga。</p>
+<pre data-code-language="Shell"><code><span class="code-command">cd</span> <span class="code-path">/vol2/1000/docker/komga</span>
+<span class="code-command">sudo docker compose config</span> <span class="code-option">--quiet</span>
+<span class="code-command">sudo docker compose pull</span>
+<span class="code-command">sudo docker compose up</span> <span class="code-option">-d</span>
+<span class="code-command">sudo docker compose ps</span></code></pre>
+<p>外观部分是在当时版本的 NextUI 中试用 Stylus 样式，仅对指定服务地址生效。其他浏览器和 iPhone 不会自动获得这份样式。</p>
+<h3 id="section-11">D 批量运行与凌晨调度</h3>
+<p>原图工作目录与 CBZ 归档分开统计。ZIP 打包通常只能少量压缩已经编码的 JPEG，原图与 CBZ 同时保留会占用两份磁盘空间。</p>
+<pre data-code-language="Shell"><code><span class="code-command">du</span> <span class="code-option">-sh</span> <span class="code-path">/vol2/1000/docker/pica_crawler/comics</span>
+<span class="code-command">du</span> <span class="code-option">-sh</span> <span class="code-path">/vol2/1000/NAS_2/Manga</span>
+<span class="code-command">df</span> <span class="code-option">-h</span> <span class="code-path">/vol2/1000/NAS_2/Manga</span></code></pre>
+<p>先用 sudo docker ps -a 确认没有同一下载任务正在运行。下面以 pica-crawler-batch 作为新任务名称。Ctrl+C 可退出 docker logs -f 的跟踪窗口，后台容器仍会继续执行。</p>
+<pre data-code-language="Shell"><code><span class="code-command">cd</span> <span class="code-path">/vol2/1000/docker/pica_crawler</span>
+<span class="code-command">sudo docker compose run</span> <span class="code-option">-d</span> <span class="code-option">--no-deps</span> \
+  <span class="code-option">--name</span> pica-crawler-batch picacg-download
+<span class="code-command">sudo docker logs</span> <span class="code-option">-f</span> <span class="code-option">--tail</span> <span class="code-value">30</span> pica-crawler-batch</code></pre>
+<p>部署记录中的 auto-sync.sh 进入项目目录后加锁，检查下载镜像是否已有运行中的容器，再启动一轮。脚本日志记录时间和结果。容器标准输出与错误输出重定向到 /dev/null，遇到失败时可单独前台复现以查看具体错误。</p>
+<pre data-code-language="Shell"><code><span class="code-comment">#!/bin/bash</span>
+<span class="code-command">PATH</span>=<span class="code-path">/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</span>
+<span class="code-command">cd</span> <span class="code-path">/vol2/1000/docker/pica_crawler</span> || <span class="code-command">exit</span> <span class="code-value">1</span>
+<span class="code-command">mkdir</span> <span class="code-option">-p</span> logs
+<span class="code-command">exec</span> <span class="code-value">9</span>&gt;<span class="code-path">.auto-sync.lock</span>
+<span class="code-command">flock</span> <span class="code-option">-n</span> <span class="code-value">9</span> || <span class="code-command">exit</span> <span class="code-value">0</span>
+<span class="code-command">LOG</span>=<span class="code-path">logs/auto-sync.log</span>
+<span class="code-option">if</span> <span class="code-command">docker ps</span> <span class="code-option">-q</span> <span class="code-option">--filter</span> ancestor=picacg-download:latest | <span class="code-command">grep</span> <span class="code-option">-q</span> .; <span class="code-option">then</span>
+    <span class="code-command">echo</span> <span class="code-value">"$(date): 已有爬虫运行，本次跳过"</span> &gt;&gt; <span class="code-value">"$LOG"</span>
+    <span class="code-command">exit</span> <span class="code-value">0</span>
+<span class="code-option">fi</span>
+<span class="code-command">echo</span> <span class="code-value">"$(date): 开始自动同步收藏夹"</span> &gt;&gt; <span class="code-value">"$LOG"</span>
+<span class="code-option">if</span> <span class="code-command">docker compose run</span> <span class="code-option">--rm</span> <span class="code-option">--no-deps</span> picacg-download &gt;<span class="code-path">/dev/null</span> <span class="code-value">2</span>&gt;&amp;<span class="code-value">1</span>; <span class="code-option">then</span>
+    <span class="code-command">echo</span> <span class="code-value">"$(date): 同步任务正常结束"</span> &gt;&gt; <span class="code-value">"$LOG"</span>
+<span class="code-option">else</span>
+    <span class="code-command">echo</span> <span class="code-value">"$(date): 同步任务失败，请检查"</span> &gt;&gt; <span class="code-value">"$LOG"</span>
+<span class="code-option">fi</span></code></pre>
+<p>在 root 的 crontab 添加下面这一行，保留原有任务。NAS 当时的本地时区为 UTC+8。</p>
+<pre data-code-language="Shell"><code><span class="code-value">0</span> <span class="code-value">4</span> * * * <span class="code-path">/bin/bash</span> <span class="code-path">/vol2/1000/docker/pica_crawler/auto-sync.sh</span></code></pre>
+<p>手动验证容器可以检查退出状态。定时任务另查脚本日志，按日期确认是否触发和完成。</p>
+<pre data-code-language="Shell"><code><span class="code-command">sudo docker inspect</span> <span class="code-option">--format</span> <span class="code-value">'status={{.State.Status}} exit={{.State.ExitCode}}'</span> pica-verify-1105
+sudo <span class="code-command">tail</span> <span class="code-option">-n</span> <span class="code-value">20</span> <span class="code-path">/vol2/1000/docker/pica_crawler/logs/auto-sync.log</span></code></pre>
+<figure><a href="img/doujin-nas/figure-06.png" data-lightbox="doujin-nas-gallery" data-title="图 6 11 月 5 日定时触发与手动验证时间线"><img src="img/doujin-nas/figure-06.png" alt="图 6 11 月 5 日定时触发与手动验证时间线" width="1800" height="575" loading="lazy" decoding="async"></a><figcaption>图 6 11 月 5 日定时触发与手动验证时间线</figcaption></figure>
+<h3 id="section-12">E API 切换与章节过滤</h3>
+<p>登录连接超时发生在 /auth/sign-in。备份 src/client.py 后，把 base 改为已测试的 https://picaapi.go2778.com/，再执行 sudo docker compose build picacg-download。用附录 C 的方式重新验证登录及收藏列表。</p>
+<p>下载端修改位于 src/main.py。收藏夹分支按漫画 ID 和章节名查询 data/downloaded.db，跳过已登记章节的图片地址查询，避免触发 filter_comics() 的分类逻辑。仅在启用自动取消收藏时才执行那次额外的作品详情请求。图片 URL 拼接处将 storage1.picacomic.com 替换为 s3.go2778.com。修改后逐项检查 Python 语法并重建镜像。</p>
+<h3 id="section-13">F 中继取图与缺页修复</h3>
+<p>Cloudflare 中继属于后续设计。[5] 直连遇到连接或读取超时时，交给 Worker 尝试取图。Worker 仅接受指定图片域名和路径，重定向逐跳核对，使用独立的中继鉴权。把直连和中继结果分别记入日志，图片能正常解码后才按页码落盘。失败页保留在缺页记录中。</p>
+<figure><a href="img/doujin-nas/figure-07.webp" data-lightbox="doujin-nas-gallery" data-title="图 7 直连超时后由 Cloudflare 中继取图的方案示意"><img src="img/doujin-nas/figure-07.webp" alt="图片请求优先从 NAS 直连。超时后由 Cloudflare 上的中继请求图片服务器，将图片传回 NAS。" width="1448" height="1086" loading="lazy" decoding="async"></a><figcaption>图 7 直连超时后由 Cloudflare 中继取图的方案示意</figcaption></figure>
+<p>已登记章节需从缺页记录单独处理。按源站页码检查原图，补齐后顺序打成临时 CBZ，校验页数和压缩包，再替换 Manga 中对应的旧文件。最后让 Komga 扫描并重新分析该章节。归档沿用作者、作品、章节 CBZ 的目录结构。[6]</p>
+<figure><a href="img/doujin-nas/figure-08.webp" data-lightbox="doujin-nas-gallery" data-title="图 8 从补图到书库扫描的方案示意 图中页数为例"><img src="img/doujin-nas/figure-08.webp" alt="示例中，旧 CBZ 有 41 页。原图补到 44 张后重新打包，将新版归档写回漫画库，再由 Komga 扫描和阅读。" width="1536" height="1024" loading="lazy" decoding="async"></a><figcaption>图 8 从补图到书库扫描的方案示意 图中页数为例</figcaption></figure>
+<section class="doujin-sources" aria-label="参考项目与文档">
+  <h2 id="section-14">参考项目与文档</h2>
+  <ol role="list">
+    <li><a class="doujin-source" href="https://github.com/kssku/picacomic-downloader-web" aria-labelledby="doujin-source-1"><span class="doujin-source-number">[1]</span> <span><span class="doujin-source-title" id="doujin-source-1">picacomic-downloader-web 项目说明</span> <span class="doujin-source-url">https://github.com/kssku/picacomic-downloader-web</span></span></a></li>
+    <li><a class="doujin-source" href="https://github.com/lx1169732264/pica_crawler" aria-labelledby="doujin-source-2"><span class="doujin-source-number">[2]</span> <span><span class="doujin-source-title" id="doujin-source-2">pica_crawler 项目说明</span> <span class="doujin-source-url">https://github.com/lx1169732264/pica_crawler</span></span></a></li>
+    <li><a class="doujin-source" href="https://github.com/lx1169732264/pica_crawler/blob/master/config/config_backup.ini" aria-labelledby="doujin-source-3"><span class="doujin-source-number">[3]</span> <span><span class="doujin-source-title" id="doujin-source-3">pica_crawler 配置模板</span> <span class="doujin-source-url">https://github.com/lx1169732264/pica_crawler/blob/master/config/config_backup.ini</span></span></a></li>
+    <li><a class="doujin-source" href="https://komga.org/docs/installation/docker/" aria-labelledby="doujin-source-4"><span class="doujin-source-number">[4]</span> <span><span class="doujin-source-title" id="doujin-source-4">Komga Docker 部署文档</span> <span class="doujin-source-url">https://komga.org/docs/installation/docker/</span></span></a></li>
+    <li><a class="doujin-source" href="https://developers.cloudflare.com/workers/runtime-apis/fetch/" aria-labelledby="doujin-source-5"><span class="doujin-source-number">[5]</span> <span><span class="doujin-source-title" id="doujin-source-5">Cloudflare Workers Fetch 文档</span> <span class="doujin-source-url">https://developers.cloudflare.com/workers/runtime-apis/fetch/</span></span></a></li>
+    <li><a class="doujin-source" href="https://komga.org/docs/guides/scan-analysis-refresh/" aria-labelledby="doujin-source-6"><span class="doujin-source-number">[6]</span> <span><span class="doujin-source-title" id="doujin-source-6">Komga 扫描与分析文档</span> <span class="doujin-source-url">https://komga.org/docs/guides/scan-analysis-refresh/</span></span></a></li>
+  </ol>
+</section>
+        </article>
+        <div class="share-buttons">
+          <span>分享:</span>
+          <button class="share-btn" data-platform="twitter" title="分享到 Twitter" aria-label="分享到 Twitter"><i class="fa fa-twitter"></i></button>
+          <button class="share-btn" data-platform="weibo" title="分享到微博" aria-label="分享到微博"><i class="fa fa-weibo"></i></button>
+          <button class="share-btn" data-platform="copy" title="复制链接" aria-label="复制链接"><i class="fa fa-link"></i></button>
+        </div>
+        <p class="text-center"><a href="text.html" class="btn btn-ghost">返回文章目录</a></p>
+      </div></div></div>
+    </section>
+    <!-- giscus comments -->
+    <section class="background-gray-lightest section--padding-bottom-small">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="text-center text-uppercase margin-bottom">コメント</h4>
+            <script src="https://giscus.app/client.js"
+              data-repo="kasuganosan/kasuganosan.github.io"
+              data-repo-id="R_kgDOMhvNkg"
+              data-category="Comments"
+              data-category-id="DIC_kwDOMhvNks4C-a0R"
+              data-mapping="pathname"
+              data-strict="0"
+              data-reactions-enabled="1"
+              data-emit-metadata="0"
+              data-input-position="bottom"
+              data-theme="light_tritanopia"
+              data-lang="zh-CN"
+              data-loading="lazy"
+              crossorigin="anonymous"
+              async>
+            </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="background-gray-lightest section--padding-bottom-small">
+      <div class="container">
+        <h4 class="text-center text-uppercase margin-bottom">おすすめ</h4>
+        <div class="row related-posts" data-article="doujin-nas"></div>
+      </div>
+    </section>
+</main>
+<footer class="footer">
+      <div class="footer__copyright">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <p>Copyright &copy; 右代宮氏 2024-2026</p>
+            </div>
+            <div class="col-md-6">
+              <p class="credit"></p>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Javascript files-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.cookie.js"> </script>
+    <script src="js/lightbox.min.js"></script>
+    <script src="js/front.js"></script><!-- substitute:livereload -->
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
+    <script src="js/blog-core.js"></script>
+    <script src="js/nas.js"></script>
+    <button id="back-to-top" aria-label="返回顶部"><i class="fa fa-chevron-up"></i></button>
+      </body>
+</html>

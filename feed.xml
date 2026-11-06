@@ -5,8 +5,16 @@
     <link>https://rokkenshima.fun</link>
     <description>ゲームレビュー、社会思考、学術探求、文学芸術、人生雑筆。愛がなければ視えない。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 23 Oct 2026 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 00:00:00 +0800</lastBuildDate>
     <atom:link href="https://rokkenshima.fun/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>基于飞牛NAS的同人志库搭建记录</title>
+      <link>https://ushiromiya.jp/doujin-nas.html</link>
+      <guid>https://ushiromiya.jp/doujin-nas.html</guid>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 +0800</pubDate>
+      <description>从哔咔收藏夹到 Komga 书架的部署与排错过程</description>
+      <category>学术探讨</category>
+    </item>
     <item>
       <title>北海道を満喫するたび——道央、道东与大雪山旅行记录</title>
       <link>https://ushiromiya.jp/hokkaido-winter.html</link>
